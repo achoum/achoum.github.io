@@ -1,0 +1,2 @@
+A* search algorithm in 3D
+Screen shot of our game called <i>Build &amp; Defend</i>

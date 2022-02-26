@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset='utf-8'>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/tutorial.css">
+	<link rel="stylesheet" type="text/css" href="css/interactive.css">
+	<link rel="stylesheet" type="text/css" href="css/lightbox.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/style_brigth.css" title='brigth'>
+	<link rel="alternate stylesheet" type="text/css" href="css/style_crasy.css" title='crasy'>
+	<link rel="alternate stylesheet" type="text/css" href="css/style_dark.css" title='dark'>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.2/jquery.flot.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.2/jquery.flot.navigate.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+	<!-- <script type="text/javascript" src="js/interactive.js"></script>-->
+
+	<!--[if IE]><script src="scripts/html5-ie.js"></script><![endif]-->
+	<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+	<script type="text/javascript" src="js/allwebsite.js"></script>
+
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<title>Mathieu Guillame-Bert Profesionnal web site</title>
+</head>
+
+<body>
+
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-45167997-1', 'guillame-bert.com');
+		ga('send', 'pageview');
+	</script>
+
+	<script>
+
+		$(document).ready(function () {
+			set_style_from_cookie();
+		});
+
+		$(window).scroll(function () {
+			v = Math.max(0, $(window).scrollTop() - 170);
+			if (v != $("#navigationBox").css('margin-top'))
+				$("#navigationBox").css('margin-top', v);
+		});
+
+	</script>
+
+	<a id="beginning"></a>
+
+	<div id="allcontent">
+
+		<header>
+			<div class="contenu-head">
+				<img class="polygo-top" src="image/poly-top.png">
+
+				<div id="contract">
+
+					<a id="prenom_nom" href='index.html'>Mathieu Guillame-Bert</a>
+
+					<!-- <div id="job">Postdoctoral Fellow | Carnegie Mellon University</div> -->
+					<div id="job">Software Engineer | Google Zurich</div>
+				</div>
+
+				<div id="adress">
+					<!--Carnegie Mellon University<br />
+				Robotics Institute<br />
+				5000 Forbes Ave<br />
+				Pittsburgh, PA 15213
+				-->
+					Google Zurich<br />
+					Switzerland<br />
+					<div id="email">e-mail: <img src='image/email.png' border='0'></div>
+					<!-- <div id="phone">Phone: <img src='image/phone.png' border='0' ></div> -->
+					<!-- <div id="phone">Twitter: <a href='https://twitter.com/mat_gb' target="_blank">@Achoum_GameDev</a></div> -->
+				</div>
+
+
+			</div>
+			<br style='	clear:both;' />
+
+		</header>
+
+		<div id="global">
+			<nav id='navigationBox'>
+				<ul id="navigation">
+					<li><img class="ico" src="image/ico_search.png"><a href="#Research_Interests">Research
+							Interests</a></li>
+					<li> <img class="ico" src="image/ico_publications.png"><a
+							href="index.html#Publications">Publications</a>
+					</li>
+					<li><img class="ico" src="image/ico_cv.png"> <a href="#Curriculum_vitae">Curriculum
+							vitae</a>
+					</li>
+					<li><img class="ico" src="image/ico_soft.png"><a href="#Softwares">Softwares &amp;
+							Datasets</a>
+					</li>
+					<li> <img class="ico" src="image/ico_gallery.png"><a href="gallery.html">Gallery</a></li>
+					<li><img class="ico" src="image/ico_personal.png"><a href="#Personal_area">Personal
+							area</a></li>
+				</ul>
+
+				<div id='styleSwitcher2'>
+					<a href='javascript:void(0)' onclick='switchLight()'><img src='image/ico_ligh.png' class="ico">
+						Switch light</a>
+				</div>
+
+				<!--
+				<div style='margin-top:60px;margin-left:40px;'>
+					<?php
+		print_submitNewLetterEmailBox(
+			"leftCol"
+			,"Subscribe to the Newsletter and<br />be alerted on new TITARL releases");
+		?>
+				</div>-->
+
+				<!-- 
+		<div id='styleSwitcher'>
+		You don't like bright<br />backgrounds?<br />
+		Switch the light here.<br />
+		<a class="styleButton" href='javascript:void(0)' onclick='switch_style("bright")' >bright</a>
+		<a class="styleButton" href='javascript:void(0)' onclick='switch_style("dark")' >dark</a>
+		</div>
+		-->
+			</nav>
+
+			<section>
+
+				
+
+<style type="text/css">
+  <!--
+  .math {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+  }
+
+  .dataset {
+    font-family: "Courier New", Courier, mono;
+    font-size: 10pt;
+  }
+  -->
+</style>
+
+<p>This page presents several Symbolic Time Sequences data-sets that can be used with the TITARL algorithm.
+  The format of the data-set is given <a href="#dsformat">here</a>.
+  You can use the <a href='software.html'>Event Viewer software</a> to get an interactive pre-view of the data.</p>
+
+- <a href='#computergenerate'> The computer generated Database</a><br />
+- <a href='#homedataset'> The Home Data Set</a><br />
+- <a href='#forex'> Forex Dataset: Automated Trading Experiment</a><br />
+
+<a name="computergenerated"></a>
+<h1> 1. The computer generated Database</h1>
+
+<h2>Citation</h2>
+
+<p>If the data is used in a publication, please cite this web site:</p>
+<p align="center" class="math">Mathieu
+  Guillame-Bert,
+  http://mathieu.guillame-bert.com
+</p>
+<h2>Download</h2>
+<div align="center">
+  <p><img class="ico" src="image/download.png"> <a href="dataset_repo/database_guillame.zip" target="_blank"
+      onClick="javascript: _gaq.push(['_trackPageview', 'dataset_repo/database_guillame.zip']);">Download
+      the data-set ( .zip format -- 74.2 MB)
+    </a>
+  </p>
+</div>
+
+<h2>Presentation</h2>
+
+<p>This page presents our synthetic Symbolic Time Sequence data-set.
+  This data-set can be used to test and evaluate Data-Mining algorithms for Symbolic Time Sequences.
+  The data-set is divided into 100 parts (called experiments).
+  Each parts contain unique temporal patterns with various complexity, noise level, correlation, etc.
+  A description of the temporal patterns of each part is available in the data-set
+  documentation.
+  Each part is divided into three sub-parts of equal size.
+  This sub-division can be used to perform cross validation and/or training/validating/testing.</p>
+
+<p>Additionally, the data-set
+  contains (for every part) a list of reference predictions. These predictions are (with some error margin) the best
+  predictions
+  that can be expected
+  to do.
+  Predictions are not Symbolic Time Sequences because they need to express temporal accuracy i.e. time ranges instead of
+  time points.
+  For
+  example, suppose a data-set containing two types of events (A and B). Suppose
+  the only temporal pattern is that
+  every time there is an event A at time <span class="math">t</span>, there is
+  an event B between <span class="math">t+10</span> and
+  <span class="math">t+15</span> (uniform distribution).
+</p>
+<p>The <a href="#fig1">figure 1</a> represents
+  graphically this pattern. The <a href="#fig2">figure 2</a> is an example of such dataset. The
+  <a href="#fig3">figure 3</a> represents the predictions of events B according to this pattern.
+</p>
+<p>&nbsp;</p>
+<p align="center"><a name="fig1"></a><img src="image/r1.png" width="150" height="53"><br>
+  <span class="math">fig1 : simple temporal pattern</span>
+</p>
+<p align="center">&nbsp;</p>
+<p align="center"><a name="fig2"></a><img src="image/dataset1.png" width="250" height="88"><br>
+  <span class="math">fig2 : example of time serie</span>
+</p>
+<p align="center">&nbsp;</p>
+<p align="center"><a name="fig3"></a><img src="image/pred1.png" width="250" height="57"><br>
+  <span class="math">fig3 : example of prediction</span>
+</p>
+<p align="center">&nbsp;</p>
+
+<p>In this case, there is no meaning to predict B events with a time range under
+  5 time units. Any predictions with time range under 5 time units
+  will have lower confidence and lower support than the kind of predictions
+  represented on <a href="#fig3">figure 3</a>.
+  In addition, the confidence and the support of such prediction will be linearly proportional to the 5 time units
+  reference prediction.
+</p>
+
+
+<p>A Python script is provided to
+  automatically compare user predictions with references predictions. The comparison's
+  result
+  is
+  presented
+  in a HTML report. The <a href="#fig4">figure 4</a> presents an example of such
+  report.
+  The report contains confidence, support and temporal precision of the user
+  and reference predictions. This report also contains various analysis of the
+  predictions such as relations
+  between
+  predictions
+  confidence
+  and several
+  measure
+  of the
+  dataset
+  complexity
+  e.g. number of condition of the generative pattern, noise, density of events,
+  etc..</p>
+<p align="center">&nbsp;</p>
+<p align="center"><a href="online_database/report_pred_rules_simple_r1_l0.05.html" name="fig4" target="_blank"><img
+      src="image/report_small.png" border="0"><br>
+    <span class="math">fig4 : example of html report<br>
+      (clic to enlarge)</span></a></p>
+<p>&nbsp;</p>
+<h2>Dataset organization</h2>
+<p>The data set is organized in the following way:</p>
+<ul>
+  <li>The &quot;dataSetInformation.html&quot; file presents the patterns of each
+    part of the dataset. The content of this file is explained in the <a href="#datasetinformation">Dataset
+      information section</a> (<a href="dataset_repo/online_database/dataSetInformation.html" target="_blank">see
+      online version here</a>).</li>
+  <li>The &quot;dataset&quot; directory contains part subpart of the dataset.
+    Names of the files are &quot;part_[X]_[Y].event&quot;. All files with the
+    same X contains the same temporal patterns.</li>
+  <li>The &quot;dataset_refPred&quot; directory contains the references predictions
+    of each part of the dataset.
+    Names of the files are &quot;part_[X]_[Y].pred&quot;. &quot;part_[X]_[Y].pred&quot; predictions
+    correspond to &quot;part_[X]_[Y].event&quot; events.</li>
+  <li>The &quot;dataset_desc&quot; directory contains descriptions of the complexity
+    of each part of the dataset. Names of the files are &quot;part_[X]_[Y].txt&quot;. &quot;part_[X]_[Y].txt&quot;
+    descriptions
+    correspond to &quot;part_[X]_[Y].event&quot; events.</li>
+  <li>The &quot;evaluatePrediction.py&quot; script compares user predictions
+    to reference predictions and generate a Html report. The script asks the
+    user to select
+    a directory containing its own predictions. This directory should have the
+    same organization as the &quot;dataset_refPred&quot; directory. Of course,
+    if the references prediction directory is selected as the user prediction
+    directory, the report displays prefect results. The <a href="#fig5">figure
+      5</a> shows a screen
+    capture of script running. The more important measures given in the report
+    are :
+    <ul>
+      <li>Ratio (or Gain) User's predictions' estimated confidence/Reference's
+        predictions' estimated confidence</li>
+      <li>Ratio (or Gain) User's predictions' estimated support/Reference's predictions'
+        estimated support</li>
+      <li>Ratio (or Gain) User's predictions' precision/Reference's predictions'
+        precision</li>
+    </ul>
+  </li>
+  <li>The &quot;readMe.html&quot; file contains this page.</li>
+</ul>
+<p>In order to obtain significant results, you should train and evaluate your
+  learning algorithm on different subset of the data set. For example, you can
+  train on &quot;part_[X]_01.event&quot; files and evaluate on &quot;part_[X]_02.event&quot; files.</p>
+<p align="center"><a href="image/compScript.png" name="fig5" target="_blank"><img src="image/compScript_small.png"
+      border="0"></a><br>
+  <span class="math">fig5 : screen capture of the script<br>
+    (click to enlarge)</span>
+</p>
+<a name="dsformat"></a>
+<h2>File format</h2>
+<p>Events files (*.event) contain line by line events. Lines follow the following
+  schema:</p>
+<p align="center" class="math">[time] event.[symbol]</p>
+<p>The regular expression is :</p>
+<p align="center">[+-]?([0-9]*\.[0-9]+|[0-9]+)\s+\S+</p>
+<p>Example:</p>
+<div align="center" class="dataset">
+  3867.4 a<br>
+  3867.4 a<br>
+  3874.8 b<br>
+  3874.8 b<br>
+  3901.4 a<br>
+  3901.4 a<br>
+  3908.9 b<br>
+  3908.9 b</div>
+
+
+<p>Prediction files (*.pred) contain line by line events. Lines follow the following
+  schema:</p>
+<p align="center" class="math">[begin time] [end time] event.[symbol] [probability]</p>
+<p>The regular expression is :</p>
+<p align="center">[-]?([0-9]*\.[0-9]+|[0-9]+)\s+[-]?([0-9]*\.[0-9]+|[0-9]+)\s+event\.\S+\s+?([0-9]*\.[0-9]+|[0-9]+)</p>
+<p>Example:</p>
+<div align="center" class="dataset">
+  5 10 b 0.5<br>
+  13 15 b 0.7<br>
+  25 28 b 1.0<br>
+  61 67 b 0.8<br>
+  62 66 b 0.8</div>
+
+
+
+<p>Dataset descriptions files (*.txt) contain lists of complexity measures. Lines
+  follow the following schema:
+</p>
+<p align="center" class="math">&quot;[name of the measure]&quot; [value of the measure]</p>
+<p>Example:</p>
+<div style="width:400px;margin:0 auto" align="justify" class="dataset">
+  &quot;Density of events to predict&quot; 0.009180<br>
+  &quot;
+  Maximum future of prediction&quot; 10.000000<br>
+  &quot;
+  Temporal precision&quot; 3.000000<br>
+  &quot;
+  Maximum condition window distance&quot; 20.000000<br>
+  &quot;
+  Maximum condition window size&quot; 10.000000<br>
+  &quot;
+  Maximum noise ratio&quot; 0.000000<br>
+  &quot;
+  Number of conditions&quot; 3<br>
+  &quot;
+  Probability of type 0 noise&quot; 0.500000<br>
+  &quot;
+  Probability of type 1 noise&quot; 0.000000<br>
+  &quot;
+  Probability of type 2 noise&quot; 0.500000<br>
+  &quot;
+  Duration of experiment&quot; 100000<br>
+  &quot;
+  Number of events to perdict&quot; 918</div>
+
+<a name="datasetinformation"></a>
+<h2>Dataset information</h2>
+<p>For each part of dataset is given several pieces of information:</p>
+<table border="1">
+
+  <tr>
+    <td>
+      Name :
+    </td>
+    <td>
+      The name of the part of dataset.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Number of events to predict :</td>
+    <td>Number of events of type &quot;a&quot;</td>
+  </tr>
+
+  <tr>
+    <td>
+      Time range of dataset :</td>
+    <td>
+      All the events will be temporally located between these boundaries.</td>
+  </tr>
+
+  <tr>
+    <td>
+      Density of events to predict :</td>
+    <td>
+      The ratio &quot;Number of events to predict&quot;/&quot;Time range of dataset&quot;.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Number of different symbols :</td>
+    <td>
+      The different symbols in the dataset.</td>
+  </tr>
+
+  <tr>
+    <td>
+      Maximum future of prediction :</td>
+    <td>
+      How far a prediction can be made.</td>
+  </tr>
+
+  <tr>
+    <td>
+      Temporal precision :</td>
+    <td>
+      The time accuracy of the reference predictions.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Maximum condition window distance :</td>
+    <td>
+      Measure of far a pattern looks in the past to predict the future.</td>
+  </tr>
+
+  <tr>
+    <td height="23">
+      Maximum condition window size :</td>
+    <td>Measure of far a pattern looks in the past to predict the future</td>
+  </tr>
+
+  <tr>
+    <td>
+      Number of conditions :</td>
+    <td>
+      Number of conditions in the reference pattern.</td>
+  </tr>
+
+  <tr>
+    <td>
+      Maximum ratio &quot;number of noise events&quot;/&quot;number of events to predict&quot; :</td>
+    <td>*straight forward*</td>
+  </tr>
+
+  <tr>
+    <td>
+      Symbols noises ratio :</td>
+    <td>
+      .Number of occurrence of this event / Number of occurrence of the symbol to predict</td>
+  </tr>
+
+  <tr>
+    <td>
+      Probability of type {0,1,2} noise :</td>
+    <td>
+      Probabilities of the different types of noises.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Type 1 and 2 noise probability parameter :</td>
+    <td>
+      Parameters.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Rule random signature :</td>
+    <td>
+      Random signature for the random generation of events.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Total number of events :</td>
+    <td>*straight forward*</td>
+  </tr>
+
+  <tr>
+    <td>
+      Symbols (+number of occurrence) :</td>
+    <td>The number of occurrence of each events.</td>
+  </tr>
+
+  <tr>
+    <td>
+
+      Patterns :
+    </td>
+    <td>
+      A graphical representation of the reference pattern. See the <a href="#exempleofpatterns">example
+        of patterns section</a> for more details.
+    </td>
+  </tr>
+</table>
+
+<a name="exempleofpatterns"></a>
+<p><strong>Example of patterns :</strong></p>
+
+<p>Here is several example of temporal patterns:</p>
+<p align="center"><img src="image/dot.png" width="200" height="1"> </p>
+
+<p align="center"> <img src="image/rule_1.png"></p>
+<p>If an event P appends at time t, therefore an event A will appends between
+  <span class="math">t+0.8</span> and <span class="math">t+2.9</span> with <span class="math">62.28%</span> chance.
+</p>
+
+<p align="center"><img src="image/dot.png" width="200" height="1"> </p>
+
+<p align="center"> <img src="image/rule_2.png"></p>
+<p>If an event I appends at time t, and an event P appended between <span class="math">t-15.5</span> and
+  <span class="math">t-8.3</span>, therefore an event A will appends between <span class="math">t+2.8</span> and <span
+    class="math">t+4.5</span> with 62.92%
+  chance.
+</p>
+
+<p align="center"><img src="image/dot.png" width="200" height="1"> </p>
+
+<p align="center"> <img src="image/rule_3.png"></p>
+<p>If an event F appends at time t, and an event K appended at time t' with <span class="math">t' &#8712; [
+    t-7.9,t-2]</span>, and an event N appended at time t'' with <span class="math">t'' &#8712;[t'-14.1,t'-5.6]</span>,
+  therefore an event A will appends between t+1.8 and t+4.6 with 63.26%
+  chance. </p>
+
+<p align="center"><img src="image/dot.png" width="200" height="1"> </p>
+
+<p align="center"> <img src="image/rule_4.png"></p>
+<p>If an event K appends at time t, and there is no events D appended
+  between <span class="math">t-13.6</span> and <span class="math">t-4.9</span>,
+  therefore an event A will appends between <span class="math">t+4.9</span> and <span class="math">t+7.9</span> with
+  62.27% chance. </p>
+
+<p align="center"><img src="image/dot.png" width="200" height="1"> </p>
+
+<p align="center"> <img src="image/rule_5.png"></p>
+<p>If an event I appends at time t, and an event J appended at time t' with <span class="math">t' &#8712; [
+    t-7.3,t]</span>, and there is no events E appended at time t'' with <span class="math">t''
+    &#8712;[t'-10.9,t'-5.4]</span>,
+  therefore an event A will appends between t and t+1.8 with 65.15%
+  chance. </p>
+
+<p align="center"><img src="image/dot.png" width="200" height="1"> </p>
+
+<p align="center"> <img src="image/rule_7.png"></p>
+<p>If an event F appends at time t, and an event K appended at time t' with <span class="math">t' &#8712; [
+    t-13.1,t-3.2]</span>, and an event N appended at time t'' with <span class="math">t'' &#8712;[t-7.5,t'-1.7]</span>,
+  therefore an event A will appends between t+7.3 and t+9.4 with 64.29%
+  chance. </p>
+
+<a name="homedataset"></a>
+<h1> 2. The Home Data Set</h1>
+
+<p> This dataset is based on the "Home activities dataset" by Tim van Kasteren, Athanasios Noulas, Gwenn Englebienne and
+  Ben Krose presented in "Accurate Activity Recognition in a Home Setting".</p>
+
+<p>
+  It contains the record of 28 days of sensors data and activity annotations about one person performing activities at
+  home.
+  A flat is equipped with sensors on doors, cupboard, fridge, freezer, etc.
+  Activities of the person are annotated (prepare breakfast, dinner, having a drink, toileting, sleeping, leaving the
+  house, etc.).
+  The dataset is divided into two categories: Sensors states (sensor_fridge, sensor_frontdoor, etc.) and activities
+  states (action_get_drink, action_get_drink, action_prepare_dinner, etc.).
+  In addition, twenty four states are describing the time of the day (it_is_1am, it_is_2am, it_is_3am, etc.).
+  The dataset contains 42 types of states and 2904 occurrences of state changes.
+  The dataset also contains the .xml layout file to be visualised with the <a href='software.html#eventviewer'>Event
+    Viewer
+    software</a>.
+</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">
+  <a href="image/ds_homedataset.png" name="fig6" target="_blank">
+    <img src="image/ds_homedataset_small.png" border="0">
+    <br>
+    <span class="math">fig6 : Small extract of the dataset
+      <br>
+      (clic to enlarge)
+    </span>
+  </a>
+</p>
+<p align="center">&nbsp;</p>
+
+<p><strong>Download:</strong></p>
+<div align="center">
+  <p><img class="ico" src="image/download.png"> <a href="dataset_repo/dataset_homedataset.zip" target="_blank"
+      onClick="javascript: _gaq.push(['_trackPageview', '/dataset_repo/dataset_homedataset.zip']);">Download
+      the dataset ( .zip format -- 19.8 kB
+    </a><br></p>
+</div>
+
+
+<a name="forex"></a>
+<h1> 3. Forex Dataset: Automated Trading Experiment</h1>
+
+<p> This dataset is a record of three years of the EURUSD exchange rate sampled approximately every minute (from June 5
+  2008 to June 5 2011).
+  The dataset contains various indicators (computed from the exchange rate), and discredized events/states on these
+  indicators.</p>
+
+<p>
+  A python script "evaluate_predictions.py" is provided with the dataset.
+  This script takes as input a set of buying/selling order (see below for the file format of order), it evaluates the
+  profits (or lost) of these orders, and it generates an html report.
+
+  The report contains data such as:
+<ul>
+  <li>The sum of the profits</li>
+  <li>The average value of the profits</li>
+  <li>The standard deviation the profits</li>
+  <li>Curves mapping the confidence of the order (a "confidence" can be specified for each order) for various metrics
+  </li>
+  <li>Etc.</li>
+  <ul>
+    </p>
+
+    <p>
+      The dataset also contains a short introduction to Forex trading for Automated trading systems.
+      The introduction can also be read here: <a target="_blank" href='document/forex_into.pdf'
+        title='Introduction to Forex trading for Automated trading systems'>Read the introduction</a>.
+    </p>
+
+    <p align="center">&nbsp;</p>
+    <p align="center">
+      <a href="image/forex.png" name="fig7" target="_blank">
+        <img src="image/forex_small.png" border="0">
+        <br>
+        <span class="math">fig7 : Twenty four hour previous of signal, indicators and discretized events of the EURUSD
+          exchange rate.
+          <br>
+          (clic to enlarge)
+        </span>
+      </a>
+    </p>
+    <p align="center">&nbsp;</p>
+
+    <p><strong>Download:</strong></p>
+    <div align="center">
+      <p><img class="ico" src="image/download.png"> <a href="dataset_repo/dataset_forex_guillame.zip" target="_blank"
+          onClick="javascript: _gaq.push(['_trackPageview', 'dataset_repo/dataset_forex_guillame.zip']);">Download
+          the dataset ( .zip format -- 67.2 MB
+        </a><br></p>
+    </div>
+
+
+    <p align="center"><img src="image/dot.png" width="200" height="1"> </p>
+
+    
+
+			</section>
+
+		</div>
+
+		<footer>
+			<div class="contenu-foot">
+				<div class="mat_name">Mathieu Guillame-Bert</div>
+				<br style="clear: both;">
+				<div class="create"> Web site created the 27 September 2013</span>
+				</div>
+		</footer>
+
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+	<h1>Beginner's guide</h1>
+	<p><a href="index.html">(Back to index)</a></p>
+
+	<h2>Overview</h2>
+
+	<p>Event script is a small but high level flow-oriented declarative programming language designed to facilitate the
+		pre/post processing and the analysis of symbolic and numerical time series and sequences datasets.</p>
+
+	<p>Some of Event script�s notable features are:</p>
+
+	<ul>
+		<li>Simple and compact syntax to make Event Script easy to read and write.</li>
+		<li>High level programming that abstract most of the complexity of dealing with <i>large</i> and
+			<i>asynchronous</i> time sequence datasets. Event script is so simple that it does not have IF or FOR
+			instructions.</li>
+		<li>A large library of existing operators developed and experienced through several research projects (Medical,
+			financial, fault detection, abnormality detection, etc.).</li>
+		<li>Support import and export of Csv files, as well as several other more efficient file formats.</li>
+		<li>The possibility to export a script as a graph for easy script reading and debugging.</li>
+		<li>Comes with an integrated development environment with syntax coloration, auto-completion.</li>
+		<li>Can be interfaced with Event Viewer to real time and/or online visualization of the results.</li>
+		<li>Naturally forbid the use of future data to produce result in the past (unless explicitely forced). In other
+			work, Event Script naturaly garenties that a script produces similar results on static or and online
+			streaming datasets.</li>
+		<li>Memory efficient. While processing time series, it only the strictly necessary data is kept in memory. For
+			every large datasets, Event Script can be run in a greedy streaming mode for a minimal memory consuption
+			(with a higher computational cost).</li>
+		<li>Can be run on datasets or real time data flow.</li>
+		<li>Can be distributed over several computers (TCP computation distribution).</li>
+		<li>Easy to integrate to other project with an easy to use API.</li>
+		<li>Easy to implement new operators (either as a script function or a new C++ class).</li>
+	</ul>
+
+	<h2>Getting Event Script</h2>
+
+	<p>Your next step is to install event script on your computer. Event Script source code and precompiled binaries are
+		available at *download place*.</p>
+
+	<p>Compiling Event script has been compiled sucessfully on Visual Studio and GCC 4.9.</p>
+
+	</p>Event script required several libraries:</p>
+
+	<table class="nicetable">
+		<tr>
+			<th>Library</th>
+			<th>Window download location</th>
+			<th>Linux repository name</th>
+		</tr>
+
+		<tr>
+			<td>Boost C++</td>
+			<td><a href="http://www.boost.org/" target="_blank">Website</a></td>
+			<td>libboost-dev</td>
+		</tr>
+
+		<tr>
+			<td>OpengCV</td>
+			<td><a href="http://opencv.org/" target="_blank">Website</a></td>
+			<td>libopencv2-dev</td>
+		</tr>
+
+		<tr>
+			<td>TiCpp</td>
+			<td>Inside of the Event Script project.</td>
+			<td>Inside of the Event Script project.</td>
+		</tr>
+
+		<tr>
+			<td>Ncurses</td>
+			<td>Not needed -- Linux only</td>
+			<td>libncurses-dev</td>
+		</tr>
+
+	</table>
+
+	<p>Event Script can export export graphs if GraphViz (<a href="http://www.graphviz.org/"
+			target="_blank">http://www.graphviz.org/</a>) is installed.</p>
+
+	<h2>Learning Event Script</h2>
+
+	<p>Next, read the <a href="tutorial.html">tutorial to Event script</a>. This will give you the basics knowledge to
+		write and run simple event scripts.</p>
+
+	<p>Once you have read the tutorial, can you can read:</p>
+
+	<ul>
+		<li><a href="examples.html">Event script Examples</li>
+		<li><a href="functions.html">Function reference</a></li>
+		<li><a href="command.html">Command line syntax reference</a></li>
+	</ul>
+
+	<h2>Need help?</h2>
+
+	<p>If you need help, you can contact me at {{email}}.</p>
+
+</body>
+
+</html>

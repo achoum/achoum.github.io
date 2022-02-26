@@ -1,0 +1,2 @@
+N² to N correspondence
+Used to encode 1 order logic terms in neural networks

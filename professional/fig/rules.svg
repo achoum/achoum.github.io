@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="828.86456"
+   height="451.91138"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="rules.svg"
+   inkscape:export-filename="G:\work\redaction\website\Titarl\fig\rules.png"
+   inkscape:export-xdpi="79.699387"
+   inkscape:export-ydpi="79.699387">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;">
+      <path
+         id="path3996"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Mend"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path7" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Mend-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path7-7" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Mend-15"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path7-2" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Mend-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path7-27" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Mend-7"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path7-79" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="marker3051"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path3053" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Mend-90"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path7-0" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="marker3051-6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path3053-1" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Mend-2"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path7-09" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="marker3128"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path3130" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="marker3132"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path3134" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.95989126"
+     inkscape:cx="158.67556"
+     inkscape:cy="353.55931"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     inkscape:window-x="-8"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3247"
+       empspacing="10"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       units="mm"
+       spacingx="1mm"
+       spacingy="1mm"
+       dotted="false"
+       originx="-0.067523872mm"
+       originy="-95.951301mm" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.23925781,-260.46588)">
+    <text
+       x="301.42557"
+       y="241.75797"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text12" />
+    <text
+       x="90.299202"
+       y="290.83463"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text14">A</text>
+    <line
+       x1="276.29919"
+       y1="287.83463"
+       x2="276.29919"
+       y2="286.33463"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line20" />
+    <text
+       x="276.29919"
+       y="256.83463"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text22">6</text>
+    <line
+       x1="191.29916"
+       y1="287.83463"
+       x2="191.29916"
+       y2="286.33463"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line24" />
+    <text
+       x="191.29916"
+       y="256.83463"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text26">5</text>
+    <line
+       x1="106.29921"
+       y1="287.83463"
+       x2="106.29921"
+       y2="286.33463"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line28" />
+    <text
+       x="106.29921"
+       y="256.83463"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text30">4</text>
+    <line
+       x1="96.29921"
+       y1="290.83463"
+       x2="286.29919"
+       y2="290.83463"
+       style="fill:none;stroke:#000000;stroke-width:3;marker-end:url(#Arrow1Mend)"
+       id="line32" />
+    <text
+       x="296.29919"
+       y="290.83463"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text34">B</text>
+    <text
+       x="318.89764"
+       y="308.2677"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text36">conf:100% supp:100%</text>
+    <text
+       x="690.63983"
+       y="593.18652"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text12-4" />
+    <text
+       x="90.29921"
+       y="361.70078"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text14-0">A</text>
+    <rect
+       width="170.5"
+       height="15.5"
+       x="106.29921"
+       y="343.70078"
+       style="fill:#ff6101;stroke:none"
+       id="rect16-9" />
+    <rect
+       width="170"
+       height="15"
+       x="106.29921"
+       y="343.70078"
+       style="fill:none;stroke:#7a2e00;stroke-width:1"
+       id="rect18-4" />
+    <line
+       x1="276.29919"
+       y1="358.70078"
+       x2="276.29919"
+       y2="357.20078"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line20-8" />
+    <text
+       x="276.29919"
+       y="327.70078"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text22-8">6</text>
+    <line
+       x1="191.29918"
+       y1="358.70078"
+       x2="191.29918"
+       y2="357.20078"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line24-2" />
+    <text
+       x="191.29918"
+       y="327.70078"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text26-4">5</text>
+    <line
+       x1="106.29921"
+       y1="358.70078"
+       x2="106.29921"
+       y2="357.20078"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line28-5" />
+    <text
+       x="106.29921"
+       y="327.70078"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text30-5">4</text>
+    <line
+       x1="96.29921"
+       y1="361.70078"
+       x2="286.29919"
+       y2="361.70078"
+       style="fill:none;stroke:#000000;stroke-width:3;marker-end:url(#Arrow1Mend)"
+       id="line32-1" />
+    <text
+       x="296.29919"
+       y="361.70078"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text34-7">B</text>
+    <text
+       x="318.89764"
+       y="379.13385"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text36-1">conf:50% supp:100%</text>
+    <text
+       x="292.85413"
+       y="478.90085"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text12-7" />
+    <text
+       x="90.29921"
+       y="432.56689"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text14-6">A</text>
+    <rect
+       width="170.5"
+       height="15.5"
+       x="106.29921"
+       y="414.56689"
+       style="fill:#ff6101;stroke:none"
+       id="rect16-1" />
+    <rect
+       width="170"
+       height="15"
+       x="106.29921"
+       y="414.56689"
+       style="fill:none;stroke:#7a2e00;stroke-width:1"
+       id="rect18-42" />
+    <line
+       x1="276.29922"
+       y1="429.56689"
+       x2="276.29922"
+       y2="428.06689"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line20-3" />
+    <text
+       x="276.29922"
+       y="398.56689"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text22-2">10</text>
+    <line
+       x1="191.29918"
+       y1="429.56689"
+       x2="191.29918"
+       y2="428.06689"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line24-21" />
+    <text
+       x="191.29918"
+       y="398.56689"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text26-6">7.5</text>
+    <line
+       x1="106.29921"
+       y1="429.56689"
+       x2="106.29921"
+       y2="428.06689"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line28-8" />
+    <text
+       x="106.29921"
+       y="398.56689"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text30-57">5</text>
+    <line
+       x1="96.29921"
+       y1="432.56689"
+       x2="286.29922"
+       y2="432.56689"
+       style="fill:none;stroke:#000000;stroke-width:3;marker-end:url(#Arrow1Mend)"
+       id="line32-6" />
+    <text
+       x="296.29919"
+       y="432.56689"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text34-1">B</text>
+    <text
+       x="318.89764"
+       y="449.99997"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text36-8">conf:100% supp:100%</text>
+    <text
+       x="264.92557"
+       y="650.32941"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text12-9" />
+    <text
+       x="90.299194"
+       y="503.43304"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text14-5">A</text>
+    <rect
+       width="170.5"
+       height="15.5"
+       x="106.29921"
+       y="485.43304"
+       style="fill:#ff6101;stroke:none"
+       id="rect16-4" />
+    <rect
+       width="170"
+       height="15"
+       x="106.29921"
+       y="485.43304"
+       style="fill:none;stroke:#7a2e00;stroke-width:1"
+       id="rect18-3" />
+    <line
+       x1="276.29919"
+       y1="500.43304"
+       x2="276.29919"
+       y2="498.93304"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line20-1" />
+    <text
+       x="276.29919"
+       y="485.43304"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text22-23">10</text>
+    <line
+       x1="191.29916"
+       y1="500.43304"
+       x2="191.29916"
+       y2="498.93304"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line24-3" />
+    <text
+       x="191.29916"
+       y="485.43304"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text26-41">7.5</text>
+    <line
+       x1="106.29921"
+       y1="500.43304"
+       x2="106.29921"
+       y2="498.93304"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line28-1" />
+    <text
+       x="106.29921"
+       y="485.43304"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text30-3">5</text>
+    <line
+       x1="96.29921"
+       y1="503.43304"
+       x2="286.29919"
+       y2="503.43304"
+       style="fill:none;stroke:#000000;stroke-width:3;marker-end:url(#Arrow1Mend)"
+       id="line32-8" />
+    <text
+       x="296.29919"
+       y="503.43304"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text34-74">B</text>
+    <text
+       x="318.89764"
+       y="520.86615"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text36-2">conf:50% supp:100%</text>
+    <text
+       x="421.62408"
+       y="743.11218"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text12-3" />
+    <text
+       x="302.89764"
+       y="574.29919"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text14-1">A</text>
+    <rect
+       width="170.5"
+       height="15.5"
+       x="318.89764"
+       y="556.29919"
+       style="fill:#ff6101;stroke:none"
+       id="rect16-98" />
+    <rect
+       width="170"
+       height="15"
+       x="318.89764"
+       y="556.29919"
+       style="fill:none;stroke:#7a2e00;stroke-width:1"
+       id="rect18-6" />
+    <line
+       x1="488.89761"
+       y1="571.29919"
+       x2="488.89761"
+       y2="569.79919"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line20-5" />
+    <text
+       x="488.89761"
+       y="542.29919"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text22-0">10</text>
+    <line
+       x1="403.89758"
+       y1="571.29919"
+       x2="403.89758"
+       y2="569.79919"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line24-28" />
+    <text
+       x="403.89758"
+       y="542.29919"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text26-60">7.5</text>
+    <line
+       x1="318.89764"
+       y1="571.29919"
+       x2="318.89764"
+       y2="569.79919"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line28-2" />
+    <text
+       x="318.89764"
+       y="542.29919"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text30-4">5</text>
+    <line
+       x1="308.89764"
+       y1="574.29919"
+       x2="498.89761"
+       y2="574.29919"
+       style="fill:none;stroke:#000000;stroke-width:3;marker-end:url(#Arrow1Mend)"
+       id="line32-86" />
+    <text
+       x="308.89764"
+       y="604.29919"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text34-5">+</text>
+    <text
+       x="102.89764"
+       y="604.29919"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text36-0">B</text>
+    <rect
+       width="146.5"
+       height="15.5"
+       x="118.89762"
+       y="586.29919"
+       style="fill:#017fff;stroke:none"
+       id="rect38" />
+    <rect
+       width="146"
+       height="15"
+       x="118.89762"
+       y="586.29919"
+       style="fill:none;stroke:#0130ff;stroke-width:1"
+       id="rect40" />
+    <line
+       x1="118.89762"
+       y1="601.29919"
+       x2="118.89762"
+       y2="599.79919"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line42" />
+    <text
+       x="118.89762"
+       y="572.29919"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text44">-5</text>
+    <line
+       x1="191.89763"
+       y1="601.29919"
+       x2="191.89763"
+       y2="599.79919"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line46" />
+    <text
+       x="191.89763"
+       y="572.29919"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text48">0</text>
+    <line
+       x1="264.89764"
+       y1="601.29919"
+       x2="264.89764"
+       y2="599.79919"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line50" />
+    <text
+       x="264.89764"
+       y="572.29919"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text52">5</text>
+    <line
+       x1="108.89764"
+       y1="604.29919"
+       x2="274.89764"
+       y2="604.29919"
+       style="fill:none;stroke:#000000;stroke-width:1;marker-end:url(#Arrow1Mend)"
+       id="line54" />
+    <text
+       x="508.89761"
+       y="574.29919"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text56">C</text>
+    <text
+       x="531.49603"
+       y="591.73224"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text58">conf:50% supp:100%</text>
+    <text
+       x="475.90982"
+       y="883.11218"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text12-38" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3249"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(219.1875,8.0498054)"><flowRegion
+         id="flowRegion3251"><rect
+           id="rect3253"
+           width="146.47212"
+           height="70.710678"
+           x="-219.20311"
+           y="253.33151" /></flowRegion><flowPara
+         id="flowPara3255"
+         style="font-size:14px;font-family:Times New Roman;-inkscape-font-specification:Times New Roman">Rule 1</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3249-6"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(219.1875,78.915949)"><flowRegion
+         id="flowRegion3251-1"><rect
+           id="rect3253-5"
+           width="146.47212"
+           height="70.710678"
+           x="-219.20311"
+           y="253.33151" /></flowRegion><flowPara
+         id="flowPara3255-4"
+         style="font-size:14px;font-family:Times New Roman;-inkscape-font-specification:Times New Roman">Rule 2</flowPara></flowRoot>    <text
+       x="296.29919"
+       y="645.16534"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text12-73" />
+    <text
+       x="480.06299"
+       y="645.16534"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text14-7">A</text>
+    <rect
+       width="170.5"
+       height="15.5"
+       x="496.06299"
+       y="627.16534"
+       style="fill:#ff6101;stroke:none"
+       id="rect16-2" />
+    <rect
+       width="170"
+       height="15"
+       x="496.06299"
+       y="627.16534"
+       style="fill:none;stroke:#7a2e00;stroke-width:1"
+       id="rect18-60" />
+    <line
+       x1="666.06299"
+       y1="642.16534"
+       x2="666.06299"
+       y2="640.66534"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line20-16" />
+    <text
+       x="666.06299"
+       y="613.16534"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text22-5">3</text>
+    <line
+       x1="581.06299"
+       y1="642.16534"
+       x2="581.06299"
+       y2="640.66534"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line24-7" />
+    <text
+       x="581.06299"
+       y="613.16534"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text26-5">2</text>
+    <line
+       x1="496.06299"
+       y1="642.16534"
+       x2="496.06299"
+       y2="640.66534"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line28-4" />
+    <text
+       x="496.06299"
+       y="613.16534"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text30-1">1</text>
+    <line
+       x1="486.06299"
+       y1="645.16534"
+       x2="676.06299"
+       y2="645.16534"
+       style="fill:none;stroke:#000000;stroke-width:3;marker-end:url(#Arrow1Mend)"
+       id="line32-2" />
+    <text
+       x="486.06299"
+       y="675.16534"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text34-0">+</text>
+    <text
+       x="280.06299"
+       y="675.16534"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text36-01">B</text>
+    <rect
+       width="146.5"
+       height="15.5"
+       x="296.06299"
+       y="657.16534"
+       style="fill:#017fff;stroke:none"
+       id="rect38-4" />
+    <rect
+       width="146"
+       height="15"
+       x="296.06299"
+       y="657.16534"
+       style="fill:none;stroke:#0130ff;stroke-width:1"
+       id="rect40-6" />
+    <line
+       x1="296.06299"
+       y1="672.16534"
+       x2="296.06299"
+       y2="670.66534"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line42-0" />
+    <text
+       x="296.06299"
+       y="643.16534"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text44-7">-5</text>
+    <line
+       x1="369.06299"
+       y1="672.16534"
+       x2="369.06299"
+       y2="670.66534"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line46-1" />
+    <text
+       x="369.06299"
+       y="643.16534"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text48-7">0</text>
+    <line
+       x1="442.06299"
+       y1="672.16534"
+       x2="442.06299"
+       y2="670.66534"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line50-7" />
+    <text
+       x="442.06299"
+       y="643.16534"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text52-7">5</text>
+    <line
+       x1="286.06299"
+       y1="675.16534"
+       x2="452.06299"
+       y2="675.16534"
+       style="fill:none;stroke:#000000;stroke-width:1;marker-end:url(#Arrow1Mend)"
+       id="line54-7" />
+    <text
+       x="286.06299"
+       y="705.16534"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text56-3">+</text>
+    <text
+       x="80.062973"
+       y="705.16534"
+       style="font-size:14px;text-anchor:end;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text58-3">C</text>
+    <rect
+       width="146.5"
+       height="15.5"
+       x="96.063004"
+       y="687.16534"
+       style="fill:#017fff;stroke:none"
+       id="rect60" />
+    <rect
+       width="146"
+       height="15"
+       x="96.063004"
+       y="687.16534"
+       style="fill:none;stroke:#0130ff;stroke-width:1"
+       id="rect62" />
+    <line
+       x1="96.063004"
+       y1="702.16534"
+       x2="96.063004"
+       y2="700.66534"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line64" />
+    <text
+       x="96.063004"
+       y="673.16534"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text66">-3</text>
+    <line
+       x1="169.06299"
+       y1="702.16534"
+       x2="169.06299"
+       y2="700.66534"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line68" />
+    <text
+       x="169.06299"
+       y="673.16534"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text70">-2.5</text>
+    <line
+       x1="242.06299"
+       y1="702.16534"
+       x2="242.06299"
+       y2="700.66534"
+       style="fill:none;stroke:#000000;stroke-width:1"
+       id="line72" />
+    <text
+       x="242.06299"
+       y="673.16534"
+       style="font-size:11.19999981px;text-anchor:middle;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="11.2"
+       id="text74">-2</text>
+    <line
+       x1="86.063004"
+       y1="705.16534"
+       x2="252.06299"
+       y2="705.16534"
+       style="fill:none;stroke:#000000;stroke-width:1;marker-end:url(#Arrow1Mend)"
+       id="line76" />
+    <text
+       x="686.06299"
+       y="645.16534"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text78">D</text>
+    <text
+       x="708.66144"
+       y="662.59839"
+       style="font-size:14px;text-anchor:start;fill:#000000;stroke:none;font-family:Times New Roman"
+       dy="7"
+       id="text80">conf:70% supp:100%</text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3249-6-5"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(219.1875,149.78209)"><flowRegion
+         id="flowRegion3251-1-9"><rect
+           id="rect3253-5-9"
+           width="146.47212"
+           height="70.710678"
+           x="-219.20311"
+           y="253.33151" /></flowRegion><flowPara
+         id="flowPara3255-4-8"
+         style="font-size:14px;font-family:Times New Roman;-inkscape-font-specification:Times New Roman">Rule 3</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3249-6-1"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(219.1875,220.64823)"><flowRegion
+         id="flowRegion3251-1-8"><rect
+           id="rect3253-5-2"
+           width="146.47212"
+           height="70.710678"
+           x="-219.20311"
+           y="253.33151" /></flowRegion><flowPara
+         id="flowPara3255-4-6"
+         style="font-size:14px;font-family:Times New Roman;-inkscape-font-specification:Times New Roman">Rule 4</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3249-6-6"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(219.1875,291.51437)"><flowRegion
+         id="flowRegion3251-1-0"><rect
+           id="rect3253-5-3"
+           width="146.47212"
+           height="70.710678"
+           x="-219.20311"
+           y="253.33151" /></flowRegion><flowPara
+         id="flowPara3255-4-80"
+         style="font-size:14px;font-family:Times New Roman;-inkscape-font-specification:Times New Roman">Rule 5</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3249-6-12"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(219.1875,362.38051)"><flowRegion
+         id="flowRegion3251-1-5"><rect
+           id="rect3253-5-0"
+           width="146.47212"
+           height="70.710678"
+           x="-219.20311"
+           y="253.33151" /></flowRegion><flowPara
+         id="flowPara3255-4-9"
+         style="font-size:14px;font-family:Times New Roman;-inkscape-font-specification:Times New Roman">Rule 6</flowPara></flowRoot>    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Send);stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 191.09932,30.085278 0,-17.716535"
+       id="path3141"
+       inkscape:connector-curvature="0"
+       transform="translate(0.23925781,260.46588)" />
+  </g>
+</svg>

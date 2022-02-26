@@ -1,0 +1,163 @@
+
+.interactive_dist
+	{
+	width:600px;
+	background-color:#F0F0F0;
+	border:1px solid #C0C0C0;
+	margin:auto;
+	border-radius:4px;
+	padding:5px;
+	resize:both;
+	overflow:auto;
+	}
+	
+.interactive_dist div
+	{
+	resize:none;
+	}
+	
+.interactive_dist .title
+	{
+	/*text-decoration:underline;*/
+	font-weight:bold;
+	padding:3px 0px 3px 5px;
+	text-align: left;
+	}
+	
+.interactive_dist .plotcontainer
+	{
+	width:280px;
+	float:left;
+	background-color: #EEFFEE;
+	margin:3px 3px 3px 0;
+	border:1px solid #DDEEDD;
+	padding-right:3px;
+	}
+
+.interactive_dist input[type=text]
+	{
+	width:60px;
+	text-align: center;
+	resize:none;
+	}
+
+.interactive_dist .interactive_rule,.interactive_dataset
+	{
+	background-color: #EEFFEE;
+	margin:3px 0 3px 0;
+	border:1px solid #DDEEDD;
+	padding:3px;
+	}	
+	
+.interactive_dist .interactive_rule input[type=text]
+	{
+	width:30px;
+	}
+	
+.interactive_dist .snapshop
+	{
+	width:100%;
+	height:100px;
+	background-color:#FFFFFF;
+	border:1px solid #C0C0C0;
+	}
+	
+.interactive_dist .density_distribution
+	{
+	width:300px;
+	height:100px;
+	background-color:#FFFFFF;
+	border:1px solid #C0C0C0;
+	margin:auto;
+	}
+/*
+.interactive_dist .refresh_button
+	{
+	width:80%;
+	height:30px;
+	margin:10px 0 10px 0;
+	}
+*/
+
+.interactive_dist .mybutton,.mysmallbutton
+	{
+	
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffe0b5;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffe0b5;
+	box-shadow:inset 0px 1px 0px 0px #ffe0b5;
+	
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fbb450), color-stop(1, #f89306));
+	background:-moz-linear-gradient(top, #fbb450 5%, #f89306 100%);
+	background:-webkit-linear-gradient(top, #fbb450 5%, #f89306 100%);
+	background:-o-linear-gradient(top, #fbb450 5%, #f89306 100%);
+	background:-ms-linear-gradient(top, #fbb450 5%, #f89306 100%);
+	background:linear-gradient(to bottom, #fbb450 5%, #f89306 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbb450', endColorstr='#f89306',GradientType=0);
+	
+	background-color:#fbb450;
+	
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	
+	border:1px solid #c97e1c;
+	
+	display:inline-block;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:17px;
+	font-weight:normal;
+	padding:6px 11px;
+	text-decoration:none;
+	
+	text-shadow:0px 1px 0px #8f7f24;
+	
+	}
+	
+.interactive_dist .mybutton:hover,.mysmallbutton:hover {
+	
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f89306), color-stop(1, #fbb450));
+	background:-moz-linear-gradient(top, #f89306 5%, #fbb450 100%);
+	background:-webkit-linear-gradient(top, #f89306 5%, #fbb450 100%);
+	background:-o-linear-gradient(top, #f89306 5%, #fbb450 100%);
+	background:-ms-linear-gradient(top, #f89306 5%, #fbb450 100%);
+	background:linear-gradient(to bottom, #f89306 5%, #fbb450 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f89306', endColorstr='#fbb450',GradientType=0);
+	background-color:#f89306;
+	}
+
+.interactive_dist .mybutton:active,.mysmallbutton:active {
+	position:relative;
+	top:1px;
+	}
+	
+.interactive_dist .matrix
+	{
+	/*
+	width:250px;
+	height:250px;
+	*/
+	background-color:#FFFFFF;
+	border:1px solid #C0C0C0;
+	}
+
+.interactive_dist .info_snapshop
+	{
+	font-size: small;
+	}
+	
+.interactive_dist .hidden
+	{
+	display:none;
+	}
+	
+.interactive_dist .mysmallbutton
+	{
+	margin:1px;
+	padding:1px;
+	font-size: medium;
+	display: inline;
+	font-family:serif;
+	float:right;
+	}
+	

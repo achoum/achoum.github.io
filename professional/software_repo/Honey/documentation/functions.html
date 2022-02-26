@@ -1,0 +1,3945 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<h1>Function reference</h1>
+	<p><a href="index.html">(Back to index)</a></p>
+	<h2>Operator index</h2>
+	<table class='operator_index'>
+		<tr>
+			<th>Operator</th>
+			<th>Definition</th>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#AUTODATASET'>
+					AUTODATASET
+				</a>
+			</td>
+			<td class='definition'>
+				Define the input and output files/directory on which to apply the script. This command is generaly used
+				to replace input/output specification in the command line.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#active'>
+					active
+				</a>
+			</td>
+			<td class='definition'>
+				Compute the presence or the absence of signal in the tailing moving window. If a signal is present, the
+				operator returns 1, otherwise the operator returns 0.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#autoTest'>
+					autoTest
+				</a>
+			</td>
+			<td class='definition'>
+				Run a statistical test between the current value, and past values with the same time distance to the
+				specified landmarks.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#beep'>
+					beep
+				</a>
+			</td>
+			<td class='definition'>
+				Emit a beep (computer noise) every time an event is received.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#beginGroup'>
+					beginGroup
+				</a>
+			</td>
+			<td class='definition'>
+				Begins a group of operations. Grouping operation does not impact processing. Grouping operation defines
+				cluster of operations that will be grouped together for the script graphical representation. The group
+				should be closed with the "endGroup" operator.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#calendar'>
+					calendar
+				</a>
+			</td>
+			<td class='definition'>
+				Generate hour/day/month change point events and status. The time is interpreted as unix time i.e. number
+				of second since the 1 Jan. 1970.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#corr'>
+					corr
+				</a>
+			</td>
+			<td class='definition'>
+				Compute the value and the time shirt that maximise the correlation between two signals.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#count'>
+					count
+				</a>
+			</td>
+			<td class='definition'>
+				Count the number of signal input.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#cusum'>
+					cusum
+				</a>
+			</td>
+			<td class='definition'>
+				Moving CuSum (Cumulative Sum).
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#delay'>
+					delay
+				</a>
+			</td>
+			<td class='definition'>
+				Delay a signal i.e. create an artificial lag. A delay is positive. For "negative delay", look at the
+				"echoPast" operator.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#derivative'>
+					derivative
+				</a>
+			</td>
+			<td class='definition'>
+				Compute the numerical derivative between the current and previous values i.e. the difference between the
+				last two values normalized by the time interval. If the signal is nosy, it is recommanded to apply a
+				"tma" (triangular mobing average) before this operator.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#div'>
+					div
+				</a>
+			</td>
+			<td class='definition'>
+				Divide two signal values.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#echo'>
+					echo
+				</a>
+			</td>
+			<td class='definition'>
+				Repeats a signal. Be carefull with infinite loops when using direct names or regular expression
+				catching. To avoid any looping, it is recommanded for the first line of the script to catch all the
+				signal into a variable (i.e. $ALL = echo #.*), and then to use the "filter" operator on the $ALL
+				variable.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#echoPast'>
+					echoPast
+				</a>
+			</td>
+			<td class='definition'>
+				Similar to "echo", be allow for the time to be decremented i.e. send in the past. Obviously, echoPast
+				does not work in online mode.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#ema'>
+					ema
+				</a>
+			</td>
+			<td class='definition'>
+				Apply a Tailing Exponential Moving Average with a fixed window length.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#endGroup'>
+					endGroup
+				</a>
+			</td>
+			<td class='definition'>
+				Close of group. See operation "beginGroup" for more details.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#eq'>
+					eq
+				</a>
+			</td>
+			<td class='definition'>
+				Return the result of a Polish Notation equation on the value of several signals. Dynamic variables are
+				"time", "value", "arg1",..., "arg4".
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#ewma'>
+					ewma
+				</a>
+			</td>
+			<td class='definition'>
+				Exponential weighted moving average control chart operator.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#fft'>
+					fft
+				</a>
+			</td>
+			<td class='definition'>
+				Moving Fast Fourier Transform. The resulting spectum is grouped into bins. Each bin is emited as an
+				individual output.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#filter'>
+					filter
+				</a>
+			</td>
+			<td class='definition'>
+				Filter the signal from a variable using a regular expression.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#finish'>
+					finish
+				</a>
+			</td>
+			<td class='definition'>
+				Generates the event "finish" at the end of the script execution.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#global_normalize'>
+					global_normalize
+				</a>
+			</td>
+			<td class='definition'>
+				Normalize the signal in mean and standart deviation. Since the normalization requiere to know all the
+				signal values, this operator cannot be used in online mode. For normalization in online mode, you can
+				use the operators "normalize" or "normalizeFixedTime".
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#keyboard'>
+					keyboard
+				</a>
+			</td>
+			<td class='definition'>
+				Emit an event when a keyboard key is pressed. Only work in online mode.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#layer'>
+					layer
+				</a>
+			</td>
+			<td class='definition'>
+				Suppose a set of thresholds evenly spaced between "min" and "max". Generates an event whenever the input
+				signal crosses up or down any of the thresholds.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#max'>
+					max
+				</a>
+			</td>
+			<td class='definition'>
+				Maximum over a tailling window.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#min'>
+					min
+				</a>
+			</td>
+			<td class='definition'>
+				Minimum over a tailling window.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#multiTests'>
+					multiTests
+				</a>
+			</td>
+			<td class='definition'>
+				Combine several statistical tests p-values. The input should be the -log of the p-values.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#normalize'>
+					normalize
+				</a>
+			</td>
+			<td class='definition'>
+				Normalize the signal by mean and mean+variance computed on a tailing window.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#normalizeFixedTime'>
+					normalizeFixedTime
+				</a>
+			</td>
+			<td class='definition'>
+				Normalize the signal by a mean and mean+variance of the signal. The mean and variance are computed in
+				the indicated time window. A signal is generated when at least 5 points are met.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#passIf'>
+					passIf
+				</a>
+			</td>
+			<td class='definition'>
+				Repeats a signal if the result of the equation applied on a signal is greater or equal to 1. Look at the
+				"eq" operator for more details. Allowed terms are "time", "value", "arg1",..., "arg4".
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#passIfFast'>
+					passIfFast
+				</a>
+			</td>
+			<td class='definition'>
+				Repeats a signal if all constraints are satisfied. This operator is significantly faster than "passIf".
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#peak'>
+					peak
+				</a>
+			</td>
+			<td class='definition'>
+				Detect and characterize peaks (i.e. value of the second order redivative when the first order derivative
+				of the signal crosses the value 0).
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#print'>
+					print
+				</a>
+			</td>
+			<td class='definition'>
+				Print the content of a variable. If exectuted in static mode, print will print statistics on the data.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#range'>
+					range
+				</a>
+			</td>
+			<td class='definition'>
+				Moving range (i.e. maximum value - mininum value ) of the signal.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#rename'>
+					rename
+				</a>
+			</td>
+			<td class='definition'>
+				Change the symbol of a signal. By default, if several different signals are provided, and error is
+				generated. If keepAll:true and if several signals are provided, all the signals are merged into a same
+				signal. If keepOnlyFirst:true and if several signals are provided, only the first meet signal is renamed
+				and the others are ignored.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#renameRegexp'>
+					renameRegexp
+				</a>
+			</td>
+			<td class='definition'>
+				Change the symbol of a signal or a list of signal using a regular expression replacement.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#report_histIntersectEventScalar'>
+					report_histIntersectEventScalar
+				</a>
+			</td>
+			<td class='definition'>
+				Count the number of instance of a symbol according to the value of a scalar. You can for example look
+				for the number of one type of event according by the hour of the day (if the later is represented as a
+				scalar value).
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#report_histIntersectEventState'>
+					report_histIntersectEventState
+				</a>
+			</td>
+			<td class='definition'>
+				Count the number of instance of a symbol according to the value of a state. You can for example look for
+				the number of one type of event according by the hour of the day (if the later is represented as a
+				scalar state).
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#rest'>
+					rest
+				</a>
+			</td>
+			<td class='definition'>
+				Repeats a signal if its value is greater than any of its previous value in a tailling window.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#return'>
+					return
+				</a>
+			</td>
+			<td class='definition'>
+				Return a set of signal to the script called. Return is mainly used with Event Script API.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#sample'>
+					sample
+				</a>
+			</td>
+			<td class='definition'>
+				Sample a signal according to a trigger signal.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#save'>
+					save
+				</a>
+			</td>
+			<td class='definition'>
+				Save the signal to .evt file. Each received signal is immedialy saved and released from memory.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#saveBufferedBin'>
+					saveBufferedBin
+				</a>
+			</td>
+			<td class='definition'>
+				Save the signal to a .bin file. All the events are stored in a buffer until the end of the script
+				execution.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#saveBufferedCsv'>
+					saveBufferedCsv
+				</a>
+			</td>
+			<td class='definition'>
+				Save the signal to a .csv file. The dataset is stored in a buffer until the end of the execution. If the
+				dataset is too largue to fit in memory, use the "savecsv" or "save" operators.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#saveCsv'>
+					saveCsv
+				</a>
+			</td>
+			<td class='definition'>
+				Save the signal to a file in the CSV format. Each received signal is immedialy saved and released from
+				memory. However, unlike the "saveBufferedCsv" operator, you need to indicate the output collumns. If the
+				collumn names are not specified, they will be infered when writting the first line of the file. In this
+				case, all signals should be available when writing the first line.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#saveSnapshot'>
+					saveSnapshot
+				</a>
+			</td>
+			<td class='definition'>
+				Save a snapshot of the signal either at the end of the script execution, or when a trigger event is
+				received.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#sd'>
+					sd
+				</a>
+			</td>
+			<td class='definition'>
+				Moving standard deviation.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#segment'>
+					segment
+				</a>
+			</td>
+			<td class='definition'>
+				Extract pattern features from sequenced signal.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#set'>
+					set
+				</a>
+			</td>
+			<td class='definition'>
+				Assign a value to a variable.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#shewhart_univ'>
+					shewhart_univ
+				</a>
+			</td>
+			<td class='definition'>
+				Apply a Shewhart individuals control chart.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#sinceLast'>
+					sinceLast
+				</a>
+			</td>
+			<td class='definition'>
+				Time difference between the current and the last input signal update.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#skip'>
+					skip
+				</a>
+			</td>
+			<td class='definition'>
+				Subsample a signal by only repeating update which are far enough from the direct previour repeated
+				update.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#sma'>
+					sma
+				</a>
+			</td>
+			<td class='definition'>
+				Applies a tailing simple moving average with a time fixed window length.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#sub'>
+					sub
+				</a>
+			</td>
+			<td class='definition'>
+				Substract the value of two signals.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#sum'>
+					sum
+				</a>
+			</td>
+			<td class='definition'>
+				Sum the value of a signal updates over a fixed window length.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#tcp'>
+					tcp
+				</a>
+			</td>
+			<td class='definition'>
+				Create a tcp client connection to a tcp server. The communication is done with the .evt format.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#tcpserver'>
+					tcpserver
+				</a>
+			</td>
+			<td class='definition'>
+				Create a tcp server. The communication is done with the .evt format.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#tick'>
+					tick
+				</a>
+			</td>
+			<td class='definition'>
+				Generate a tick signal at regular interval.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#tma'>
+					tma
+				</a>
+			</td>
+			<td class='definition'>
+				Apply a Tailing Triangular Moving Average with a fixed window length.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#windowfeatures'>
+					windowfeatures
+				</a>
+			</td>
+			<td class='definition'>
+				Compute several common tailling window features. Computed features are: mean (equivalent to SMA [simple
+				moving average]), min, max, median, standart deviation, range, and 5%-95% range.
+			</td>
+		</tr>
+		<tr>
+			<td class='name'>
+				<a href='#zigzag'>
+					zigzag
+				</a>
+			</td>
+			<td class='definition'>
+				Compute zigzag pattern detection.
+			</td>
+		</tr>
+	</table>
+	<h2>Operator reference</h2>
+	<a name='AUTODATASET'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			AUTODATASET
+		</div>
+		<div class='description'>
+			Define the input and output files/directory on which to apply the script. This command is generaly used to
+			replace input/output specification in the command line.
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							extension <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Output extension in the case the output argument is a directory. Default value: "bin".
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							input </td>
+						<td class=details>
+							Input file path or input directory path. Several files can be provided if separated by a
+							";". Supported formats are .evt, .csv, .bin and .sevt.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							output </td>
+						<td class=details>
+							Output file/directory path.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='operator_example'>
+			<div class='title'>
+				Example
+			</div>
+			<div class='content'>
+				AUTODATASET input:"input.evt" output:"output.csv"<br />AUTODATASET input:"input1.evt;input2.evt"
+				output:"output.csv"<br />AUTODATASET input:"input_directory" output:"output_directory" extension:bin
+			</div>
+		</div>
+	</div>
+
+	<a name='active'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			active
+		</div>
+		<div class='description'>
+			Compute the presence or the absence of signal in the tailing moving window. If a signal is present, the
+			operator returns 1, otherwise the operator returns 0.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							margin <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Delay when switching from 0 to 1. Default:0=no delay.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							notUnique <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							If "true" successive updates need to have different values to be considered. Default: false.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='autoTest'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			autoTest
+		</div>
+		<div class='description'>
+			Run a statistical test between the current value, and past values with the same time distance to the
+			specified landmarks.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							landmark <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Landmarks for the tests.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							maxDist <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Maximum time between the current input and the last landmark for this landmark to be
+							computed. Default:-1=no limit.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							method <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Type of statistical test. Available options are: NORMAL, POISSON.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations for the test test to be computed. Default:6
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='beep'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			beep
+		</div>
+		<div class='description'>
+			Emit a beep (computer noise) every time an event is received.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							trigger </td>
+						<td class=details>
+							Trigger of the beep
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							pitch <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Pich of the beep. Default:750
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='beginGroup'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			beginGroup
+		</div>
+		<div class='description'>
+			Begins a group of operations. Grouping operation does not impact processing. Grouping operation defines
+			cluster of operations that will be grouped together for the script graphical representation. The group
+			should be closed with the "endGroup" operator.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							name </td>
+						<td class=details>
+							Name of the group to start.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='operator_example'>
+			<div class='title'>
+				Example
+			</div>
+			<div class='content'>
+				beginGroup processing1
+			</div>
+		</div>
+	</div>
+
+	<a name='calendar'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			calendar
+		</div>
+		<div class='description'>
+			Generate hour/day/month change point events and status. The time is interpreted as unix time i.e. number of
+			second since the 1 Jan. 1970.
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							local <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Use local time or GMT time. Default:true=local.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							produce </td>
+						<td class=details>
+							List of calendar period change point to generate. This argument is a comma separated list of
+							element among: "days", "hours", "months" and "year". Example: "produce:hours,days,months".
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='corr'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			corr
+		</div>
+		<div class='description'>
+			Compute the value and the time shirt that maximise the correlation between two signals.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol 1 </td>
+						<td class=details>
+							First symbol.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							symbol 2 </td>
+						<td class=details>
+							Second symbol.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							distance <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Type of correlation measure to apply. Can be CORRELATION or MEAN_SQUARE.
+							Default:CORRELATION.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							max </td>
+						<td class=details>
+							Maximum evaluated shift
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							min </td>
+						<td class=details>
+							Minimum evaluated shift
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							n <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Number of tried shift values. Default:100.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger </td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length to compute the correlation.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='count'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			count
+		</div>
+		<div class='description'>
+			Count the number of signal input.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							notUnique <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							If "true" successive updates need to have different values. Default: false.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='cusum'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			cusum
+		</div>
+		<div class='description'>
+			Moving CuSum (Cumulative Sum).
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							k <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							k parameter of the cusum.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations. Default:6
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							th <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							threshold parameter of the cusum.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='delay'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			delay
+		</div>
+		<div class='description'>
+			Delay a signal i.e. create an artificial lag. A delay is positive. For "negative delay", look at the
+			"echoPast" operator.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							delay </td>
+						<td class=details>
+							Time delay.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='derivative'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			derivative
+		</div>
+		<div class='description'>
+			Compute the numerical derivative between the current and previous values i.e. the difference between the
+			last two values normalized by the time interval. If the signal is nosy, it is recommanded to apply a "tma"
+			(triangular mobing average) before this operator.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='div'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			div
+		</div>
+		<div class='description'>
+			Divide two signal values.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol 1 </td>
+						<td class=details>
+							The first symbol.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							symbol 2 </td>
+						<td class=details>
+							The second symbol.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							match1 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Matching regular expression for the first operant.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							match2 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Matching regular expression for the second operant.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							nanValue <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Value to return in case of NaN. By default, NaN values are removed.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							search1 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Searching regular expression for the first operant.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							search2 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Searching regular expression for the second operant.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='echo'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			echo
+		</div>
+		<div class='description'>
+			Repeats a signal. Be carefull with infinite loops when using direct names or regular expression catching. To
+			avoid any looping, it is recommanded for the first line of the script to catch all the signal into a
+			variable (i.e. $ALL = echo #.*), and then to use the "filter" operator on the $ALL variable.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to repeat. As any signal argument, the input can be a variable (e.g. $A), a symbol
+							(e.g. toto), or a regular expression to catch several symbols (e.g. #(blue|red)_cat)
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='echoPast'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			echoPast
+		</div>
+		<div class='description'>
+			Similar to "echo", be allow for the time to be decremented i.e. send in the past. Obviously, echoPast does
+			not work in online mode.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to extract.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							time travel </td>
+						<td class=details>
+							How far the signal in sent in the past.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='ema'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			ema
+		</div>
+		<div class='description'>
+			Apply a Tailing Exponential Moving Average with a fixed window length.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Window length for the averaging expressed in number of events. Warning: EMA window is
+							different from SMA or TMA windows.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='endGroup'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			endGroup
+		</div>
+		<div class='description'>
+			Close of group. See operation "beginGroup" for more details.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							name </td>
+						<td class=details>
+							Name of the group to stop.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='operator_example'>
+			<div class='title'>
+				Example
+			</div>
+			<div class='content'>
+				endGroup processing1
+			</div>
+		</div>
+	</div>
+
+	<a name='eq'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			eq
+		</div>
+		<div class='description'>
+			Return the result of a Polish Notation equation on the value of several signals. Dynamic variables are
+			"time", "value", "arg1",..., "arg4".
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to extract.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							equation </td>
+						<td class=details>
+							Equation in Polish notation. The equation is evaluated everytime a signal is updated.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							arg1 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg1" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg2 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg2" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg3 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg3" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg4 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg4" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg5 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg5" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg6 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg6" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg7 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg7" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg8 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg8" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg9 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg9" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							removeduplicate <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Should consecutive duplicated values be removed. Default:false.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='operator_example'>
+			<div class='title'>
+				Example
+			</div>
+			<div class='content'>
+				eq $A value,2,*<br />eq $A arg1:$B value,arg1,+
+			</div>
+		</div>
+	</div>
+
+	<a name='ewma'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			ewma
+		</div>
+		<div class='description'>
+			Exponential weighted moving average control chart operator.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations. Default:6
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							th <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							threshold parameter.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='fft'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			fft
+		</div>
+		<div class='description'>
+			Moving Fast Fourier Transform. The resulting spectum is grouped into bins. Each bin is emited as an
+			individual output.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							maxf </td>
+						<td class=details>
+							Maximum frequency of keep.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							minf </td>
+						<td class=details>
+							Minimum frequency of keep.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							num </td>
+						<td class=details>
+							Number of bins when discretizing the ffp result.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger </td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='filter'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			filter
+		</div>
+		<div class='description'>
+			Filter the signal from a variable using a regular expression.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							regexp </td>
+						<td class=details>
+							Regular expression to apply on the syngal names.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='finish'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			finish
+		</div>
+		<div class='description'>
+			Generates the event "finish" at the end of the script execution.
+		</div>
+	</div>
+
+	<a name='global_normalize'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			global_normalize
+		</div>
+		<div class='description'>
+			Normalize the signal in mean and standart deviation. Since the normalization requiere to know all the signal
+			values, this operator cannot be used in online mode. For normalization in online mode, you can use the
+			operators "normalize" or "normalizeFixedTime".
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='keyboard'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			keyboard
+		</div>
+		<div class='description'>
+			Emit an event when a keyboard key is pressed. Only work in online mode.
+		</div>
+	</div>
+
+	<a name='layer'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			layer
+		</div>
+		<div class='description'>
+			Suppose a set of thresholds evenly spaced between "min" and "max". Generates an event whenever the input
+			signal crosses up or down any of the thresholds.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							exclude <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							What not to produce. By default, everything is produced. exclude:state disable the
+							generation of states.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							max <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							maximum threshold value.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							min <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							minimum threshold value.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							step </td>
+						<td class=details>
+							difference between consecutive thresolds.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='max'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			max
+		</div>
+		<div class='description'>
+			Maximum over a tailling window.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations. Default:6
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='min'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			min
+		</div>
+		<div class='description'>
+			Minimum over a tailling window.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations. Default:6
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='multiTests'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			multiTests
+		</div>
+		<div class='description'>
+			Combine several statistical tests p-values. The input should be the -log of the p-values.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbols of the tests.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							alpha </td>
+						<td class=details>
+							Alpha value for the testing.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							correction <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Type of correction. Can be BONFERRONI, SIDAK or HOLM_BONFERRONI (default).
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							name <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Symbol of the generated signal.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='normalize'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			normalize
+		</div>
+		<div class='description'>
+			Normalize the signal by mean and mean+variance computed on a tailing window.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations. Default:6
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='normalizeFixedTime'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			normalizeFixedTime
+		</div>
+		<div class='description'>
+			Normalize the signal by a mean and mean+variance of the signal. The mean and variance are computed in the
+			indicated time window. A signal is generated when at least 5 points are met.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							begin </td>
+						<td class=details>
+							Begening of the time window.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							end </td>
+						<td class=details>
+							End of the time window.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='passIf'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			passIf
+		</div>
+		<div class='description'>
+			Repeats a signal if the result of the equation applied on a signal is greater or equal to 1. Look at the
+			"eq" operator for more details. Allowed terms are "time", "value", "arg1",..., "arg4".
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to extract.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							equation </td>
+						<td class=details>
+							Equation to evaluate for each signal instance. The equation need to be written in Polish
+							notation with "," beeing the separator. Example: "time,1000,>=" remove all signal before
+							time 1000.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							arg1 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg1" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg2 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg2" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg3 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg3" in the equation
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							arg4 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							"arg4" in the equation
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='passIfFast'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			passIfFast
+		</div>
+		<div class='description'>
+			Repeats a signal if all constraints are satisfied. This operator is significantly faster than "passIf".
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to extract.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							maxTime <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Maximum time.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							maxValue <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Maximum value.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							minTime <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum time.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							minValue <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum value.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='peak'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			peak
+		</div>
+		<div class='description'>
+			Detect and characterize peaks (i.e. value of the second order redivative when the first order derivative of
+			the signal crosses the value 0).
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							firstMean <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Does the mean of should be applied on the signa? Default:true.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='print'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			print
+		</div>
+		<div class='description'>
+			Print the content of a variable. If exectuted in static mode, print will print statistics on the data.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to print.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							every <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Do we print all the events, or only the first one of each kind? By default "every:false"
+							i.e. only the first of each kind.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							label <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Label attached to the print.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='range'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			range
+		</div>
+		<div class='description'>
+			Moving range (i.e. maximum value - mininum value ) of the signal.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='rename'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			rename
+		</div>
+		<div class='description'>
+			Change the symbol of a signal. By default, if several different signals are provided, and error is
+			generated. If keepAll:true and if several signals are provided, all the signals are merged into a same
+			signal. If keepOnlyFirst:true and if several signals are provided, only the first meet signal is renamed and
+			the others are ignored.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							new name </td>
+						<td class=details>
+							New symbol.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							keepAll <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							If set to true, several different symbol can be renamed.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							keepOnlyFirst <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							If set to true, only the first met symbol is renamed and transmited. If set to false
+							(default), an error is raised if more than one symbol is met.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='renameRegexp'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			renameRegexp
+		</div>
+		<div class='description'>
+			Change the symbol of a signal or a list of signal using a regular expression replacement.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							pattern </td>
+						<td class=details>
+							A regular expression that match the signal name. If the name of a signal does not match, the
+							name is not changed.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							new name </td>
+						<td class=details>
+							The new name of the symbols. $1, $2, ... will be replaces by the parrentesis of the pattern.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='operator_example'>
+			<div class='title'>
+				Example
+			</div>
+			<div class='content'>
+				renameRegexp $A (blue|red)_cat $1_dog
+			</div>
+		</div>
+	</div>
+
+	<a name='report_histIntersectEventScalar'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			report_histIntersectEventScalar
+		</div>
+		<div class='description'>
+			Count the number of instance of a symbol according to the value of a scalar. You can for example look for
+			the number of one type of event according by the hour of the day (if the later is represented as a scalar
+			value).
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							event </td>
+						<td class=details>
+							Event to count.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							file </td>
+						<td class=details>
+							Text file to store the results of the analysis.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							scalar </td>
+						<td class=details>
+							Scalar to count to compare the event to.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							sortBy <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							What to sort the results by. Can be "name" or "value". Default:name.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='report_histIntersectEventState'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			report_histIntersectEventState
+		</div>
+		<div class='description'>
+			Count the number of instance of a symbol according to the value of a state. You can for example look for the
+			number of one type of event according by the hour of the day (if the later is represented as a scalar
+			state).
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							event </td>
+						<td class=details>
+							Event to count.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							file </td>
+						<td class=details>
+							Text file to store the results of the analysis.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							sortBy <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							What to sort the results by. Can be "name" or "value". Default:name.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							state </td>
+						<td class=details>
+							States to count.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='rest'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			rest
+		</div>
+		<div class='description'>
+			Repeats a signal if its value is greater than any of its previous value in a tailling window.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='return'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			return
+		</div>
+		<div class='description'>
+			Return a set of signal to the script called. Return is mainly used with Event Script API.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to return.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							name <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Name of the return in case of several returns.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='sample'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			sample
+		</div>
+		<div class='description'>
+			Sample a signal according to a trigger signal.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							noTail <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							If set to true, does not add a tail (post-fix) to the signal name.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger </td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='save'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			save
+		</div>
+		<div class='description'>
+			Save the signal to .evt file. Each received signal is immedialy saved and released from memory.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to save.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							append <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Append (or replace) the content of the file. Default:false.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							file </td>
+						<td class=details>
+							path of the file to write.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='saveBufferedBin'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			saveBufferedBin
+		</div>
+		<div class='description'>
+			Save the signal to a .bin file. All the events are stored in a buffer until the end of the script execution.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to save.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							file </td>
+						<td class=details>
+							path of the file to write.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='operator_example'>
+			<div class='title'>
+				Example
+			</div>
+			<div class='content'>
+				saveBufferedBin $O file:output.bin<br />saveBufferedBin $O file:%output
+			</div>
+		</div>
+	</div>
+
+	<a name='saveBufferedCsv'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			saveBufferedCsv
+		</div>
+		<div class='description'>
+			Save the signal to a .csv file. The dataset is stored in a buffer until the end of the execution. If the
+			dataset is too largue to fit in memory, use the "savecsv" or "save" operators.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to save.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							file </td>
+						<td class=details>
+							path of the file to write.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							naSymbol <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							String to write in teh csv file when a value is not available. Default:NA.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							saveTime <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Save the time as the first column (default:true).
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='operator_example'>
+			<div class='title'>
+				Example
+			</div>
+			<div class='content'>
+				saveBufferedCsv $O file:output.csv
+			</div>
+		</div>
+	</div>
+
+	<a name='saveCsv'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			saveCsv
+		</div>
+		<div class='description'>
+			Save the signal to a file in the CSV format. Each received signal is immedialy saved and released from
+			memory. However, unlike the "saveBufferedCsv" operator, you need to indicate the output collumns. If the
+			collumn names are not specified, they will be infered when writting the first line of the file. In this
+			case, all signals should be available when writing the first line.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to save.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							colNames <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Coma separated names of the collumns to write from the "symbol" parameter. If not specified,
+							the column names will be automatically computed.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							file </td>
+						<td class=details>
+							path of the file to write.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Symbol that trigger the writing of a new csv line. If not specified, a line is written for
+							each new data.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='operator_example'>
+			<div class='title'>
+				Example
+			</div>
+			<div class='content'>
+				saveCsv $O file:output.csv
+			</div>
+		</div>
+	</div>
+
+	<a name='saveSnapshot'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			saveSnapshot
+		</div>
+		<div class='description'>
+			Save a snapshot of the signal either at the end of the script execution, or when a trigger event is
+			received.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol to save.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							file </td>
+						<td class=details>
+							path of the file to write. TIME is replaced by the current time.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							offsetTime <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Offset the time so the first value is at time 0. Default:true.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Trigger of the snapshot. If not specified, snapshot is generated as the end of the execution
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							unitHeight <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Height for each plot. Default: 100.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							width <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Width of the snapshot. Default: 800.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='sd'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			sd
+		</div>
+		<div class='description'>
+			Moving standard deviation.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations. Default:6
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='segment'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			segment
+		</div>
+		<div class='description'>
+			Extract pattern features from sequenced signal.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							bound </td>
+						<td class=details>
+							Signal that define bounds i.e. trigger.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							compute </td>
+						<td class=details>
+							What to compute. Should be a comma sepatated list of elements from "pattern" or "hist"
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							debug <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Should the debug information (e.g. the poligons) should be returned. Default:false.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							pattern </td>
+						<td class=details>
+							Pattern to detect. Should be a comma separated sequence of "[UD]" or "[UD]:name".
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='set'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			set
+		</div>
+		<div class='description'>
+			Assign a value to a variable.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							variable </td>
+						<td class=details>
+							Non signal variable name. Remember that non signal variable name start with $. Example:
+							$toto.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							value </td>
+						<td class=details>
+							The new value to assign. Example: 5.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='operator_example'>
+			<div class='title'>
+				Example
+			</div>
+			<div class='content'>
+				set %toto 43
+			</div>
+		</div>
+	</div>
+
+	<a name='shewhart_univ'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			shewhart_univ
+		</div>
+		<div class='description'>
+			Apply a Shewhart individuals control chart.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							k <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Number of standard deviations to generate an alert. Default:3
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations. Default:6
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='sinceLast'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			sinceLast
+		</div>
+		<div class='description'>
+			Time difference between the current and the last input signal update.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Maximum distance.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='skip'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			skip
+		</div>
+		<div class='description'>
+			Subsample a signal by only repeating update which are far enough from the direct previour repeated update.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							min distance </td>
+						<td class=details>
+							Minimum time distance between two consecutive events.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							noTail <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							If set to true, does not add a tail (post-fix) to the signal name.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='sma'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			sma
+		</div>
+		<div class='description'>
+			Applies a tailing simple moving average with a time fixed window length.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations. Default:6
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='sub'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			sub
+		</div>
+		<div class='description'>
+			Substract the value of two signals.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol 1 </td>
+						<td class=details>
+							The first symbol.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							symbol 2 </td>
+						<td class=details>
+							The second symbol.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							match1 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Matching regular expression for the first operant.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							match2 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Matching regular expression for the second operant.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							nanValue <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Value to return in case of NaN. By default, NaN values are removed.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							search1 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Searching regular expression for the first operant.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							search2 <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Searching regular expression for the second operant.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='sum'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			sum
+		</div>
+		<div class='description'>
+			Sum the value of a signal updates over a fixed window length.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							minNumObs <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Minimum number of observations. Default:6
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='tcp'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			tcp
+		</div>
+		<div class='description'>
+			Create a tcp client connection to a tcp server. The communication is done with the .evt format.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to send to the server.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							ip </td>
+						<td class=details>
+							ip of the server.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							port </td>
+						<td class=details>
+							port of the server.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							share <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Allow several tcp commands to share the same connection.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='tcpserver'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			tcpserver
+		</div>
+		<div class='description'>
+			Create a tcp server. The communication is done with the .evt format.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to send to the server.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							port </td>
+						<td class=details>
+							port for the server to listen.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='tick'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			tick
+		</div>
+		<div class='description'>
+			Generate a tick signal at regular interval.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							interval </td>
+						<td class=details>
+							Time betwen two consecutive ticks.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							aligned <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Should the tick be aligned on the time value i.e. be generated with a time value as multiple
+							of the interval value. Default:true/
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='tma'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			tma
+		</div>
+		<div class='description'>
+			Apply a Tailing Triangular Moving Average with a fixed window length.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='windowfeatures'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			windowfeatures
+		</div>
+		<div class='description'>
+			Compute several common tailling window features. Computed features are: mean (equivalent to SMA [simple
+			moving average]), min, max, median, standart deviation, range, and 5%-95% range.
+		</div>
+		<div class='anonymous_arguments'>
+			<div class='title'>
+				Anonymous options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							symbol </td>
+						<td class=details>
+							Symbol on which to apply the operation.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							window </td>
+						<td class=details>
+							Time window length.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							output <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							What feature to compute. By default all features are computed. If specified, "output" should
+							be a comma separated list of elements such as mean,median,sd,range,min,max,range90 or all
+							e.g. output:mean,sd or output:all. Default:all.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Generate an output everytime a trigger event is received. If this argument is not specified,
+							an output is generated at every new input of the symbol argument.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<a name='zigzag'></a>
+	<div class='operator'>
+		<div class='operator_name'>
+			zigzag
+		</div>
+		<div class='description'>
+			Compute zigzag pattern detection.
+		</div>
+		<div class='named_arguments'>
+			<div class='title'>
+				Named options
+			</div>
+			<div class='content'>
+				<table>
+					<tr>
+						<td class='name'>
+							computeRelative <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Compute relative values? (default:false)
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							down </td>
+						<td class=details>
+							Down symbol.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							pattern </td>
+						<td class=details>
+							Pattern to apply. It is a string of "U" (for up) and "D" (for down). For example,
+							pattern:UDUDDU.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							postD <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Do we allow post downs? (default:false)
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							postU <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Do we allow post ups? (default:false)
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							trigger </td>
+						<td class=details>
+							When yo apply the pattern.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							up </td>
+						<td class=details>
+							Up symbol.
+						</td>
+					</tr>
+					<tr>
+						<td class='name'>
+							value <span class='tag_optionnal'>[optionnal]</span>
+						</td>
+						<td class=details>
+							Value symbol.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

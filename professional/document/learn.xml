@@ -1,0 +1,90 @@
+<!--
+The file that contains the configuration parameters for the learning.
+-->
+
+<config>
+
+<option name="saveRules_new" value="example_hard_learning_rules.xml" /> <!-- output file of the rules to extract -->
+<option name="threads" value="-1" /> <!-- Number of threads available for main loop (uses -1 for a correct debug printing) -->
+<option name="sub_threads" value="6" /> <!-- Number of threads available for sub computation loops () -->
+<option name="debugLevel" value="1" />  <!-- Level of verbose of the algorithm -->
+<option name="stop_at_every_loop" value="0" />  <!-- Stop the algorithm at every loop and wait for user confirmation -->
+
+<!-- Input dataset files -->
+
+<data path="training.evt" head="" limit="-1" /> <!-- training dataset -->
+<data path="validation.evt" head="" limit="-1" type="validate" />  <!-- validation dataset (optionnal -- rules are less likely to be over trained with a validationd dataset) -->
+
+<!-- Body/head rule configuration -->
+
+<outputEvent> <!-- target events -->
+	<predicate name="event\.target" />
+</outputEvent>
+
+<inputEvent> <!-- input events -->
+	<predicate name="event\.\S+" />
+</inputEvent>
+
+<inputState> <!-- input states -->
+	<predicate name="state\.\S+" />
+</inputState>
+
+<inputScalar> <!-- input scalars -->
+	<predicate name="scalar\.\S+" />
+</inputScalar>
+
+<!-- rule generation parameters -->
+
+<option name="numCaseHead" value="10" />  <!-- Number of cases of the histogram for the head of the rule -->
+<option name="maxPastHead" value="-20" />  <!-- Bounds of this histogram -->
+<option name="maxFutureHead" value="-1" />  <!-- Bounds of this histogram -->
+<!-- Info: maxPastHead=-20 and maxFutureHead=-1 means that we are looking for rules that make predictions from 1 to 20 time units in the future -->
+
+<option name="numCaseCond" value="10" />  <!-- Number of cases of the histogram for the body of the rul -->
+<option name="maxPastCond" value="-10" />  <!-- Bounds of the histogram -->
+<option name="maxFutureCond" value="0" />  <!-- Bounds of the histogram -->
+<!-- Info: maxPastCond=-10 and maxFutureCond=0 means that conditions are looking from 0 to 10 time units in the past -->
+
+<option name="histogram" value="Unif" /> <!-- Histogram bins distribution. Can be Unif,Log,InvLog,CenterLog. Look at http://mathieu.guillame-bert.com/fig/grid.png for examples of histogram bins distribution.-->
+<option name="histoLogFactor" value="70" /> <!-- Parameters for histogram Log, InvLog and CenterLog -->
+<option name="negation" value="0" /> <!-- Allow negative conditions i.e. "there is not event of type A between t_1 and t_2" -->
+<option name="allowTrees" value="1" /> <!-- Allow trees of conditions (by opposition to paths of conditions) -->
+<option name="maxConditions" value="5" /> <!-- Maximum number of condition for a rule -->
+
+<!-- rules restrictions -->
+<option name="minConfidence" value="0.04" /> <!-- Minimum confidence for a rule -->
+<option name="minCoverage" value="0.04" /> <!-- Minimum coverage/support for a rule. TITARL relies on the apriori trick (http://en.wikipedia.org/wiki/Apriori_algorithm) , therefore this parameter is very important. -->
+<option name="minNumberOfUse" value="10" /> <!-- Minimum number of use of a rule -->
+
+<!-- research parameters -->
+<option name="maxCreatedRules" value="-1" /> <!-- Maximum number of rules to create. If this number is reached, the algorithm stop. Since several rules can be created simultaniously, the final number of rules can be slightly higher than this parameter (-1: no limit) --> 
+<option name="minimumInformationGain" value="0.002" /> <!-- Minimum information gain when building conditions -->
+
+<option name="intermediatesmoothing" value="0" /> <!-- Experimental: Smooth rules in the main loop i.e. Generate duplicates of rules with small modification. -->
+<option name="finalsmoothing" value="0" /> <!-- Smooth rules after extraction -->
+<option name="division" value="1" /> <!--Allow division of rules -->
+<option name="division_method" value="graph_coloration" /> <!-- Method to determine the rule division. Can be graph_coloration,matrix_clustering,exhaustive_connex -->
+<option name="allowNonConnextCondition" value="0" /> <!-- Allow non connection conditions (more powerful grammar, but increase risk of overtraining -->
+
+<option name="allow_classifier_id3" value="0" /> <!-- Allow to create conditions based on id3 decision tree on scalar events -->
+<option name="classifier_id3_maxdeph" value="4" /> 
+<option name="classifier_id3_minuse" value="8" />
+
+<option name="allow_classifier_randomforest" value="0" /> <!-- Allow to create conditions based on Random forest on scalar events -->
+<option name="allow_state" value="0" />
+<option name="allow_time" value="1" />
+<option name="allow_scalar" value="0" />
+
+<!-- Algo stopping criteria -->
+<option name="maxLoop" value="-1" /> <!-- Maximum number of loop (-1: no limit) -->
+<option name="maxTime" value="-1" /> <!-- Maximum number of second of computation (-1: no limit) -->
+<option name="maxTimeAfterInit" value="40" /> <!-- Maximum number of second of computation after the end of the iteration (-1: no limit) -->
+
+<!-- Optimization -->
+
+<option name="maxWaitingList" value="100000" /> <!-- Maximum size of the waiting list (Security to avoid overload of memory) -->
+
+<option name="maxEvaluations" value="-1" /> <!-- Number of random sampling to evaluate in order to compute confidence and support (-1 to use all the dataset). Can greatly speed up the learning. If you use it, set it to at least 5000 -->
+<option name="maxTests" value="-1" /> <!-- Number of random sampling to evaluate in order to compute entropy gain (-1 to use all the dataset). Can greatly speed up the learning. If you use it, set it to at least 5000. -->
+
+</config>

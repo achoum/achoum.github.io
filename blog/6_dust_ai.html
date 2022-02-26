@@ -1,0 +1,157 @@
+<p><a href="index.html">Back to the blog</a></p>
+<h1 id="dusts-artificial-intelligence-engine">Dust's Artificial Intelligence engine</h1>
+<p>For a while now, I wanted to introduce you to a project that I started around two years ago. While not complete, the project has reached enough maturity so I can talk about it, show nice screen shots and envision its release.</p>
+<p>This project is called <strong>Dust : The Abandoned Land</strong>, and it is a video game in the mindset of Build and Defend. Essentially, Dust contains many of the things that I wanted to add to B&amp;D, but that I could not because it would have completely changed the game, or because it would have required to completely reprogram the game engine. Dust is a top-down, third person 2D game in a 3D world, where players try to survive in an post apocalyptic world filled with strange creatures as simple as that. The game is played real time (i.e. it is not turn based) in an gigantic and procedurally generated world populated with different areas and encounters. I would say that Dust is a Rogue Like (if you do not follow the very strict definition).</p>
+<p><a href="6_dust_ai/intro_large.png">
+<img src="6_dust_ai/intro_large-1024x268.png"></p>
+<p>(click to enlarge)
+</a></p>
+<p>There are still plenty of work to be done, but it is likely that I will release Dust in the following year. During the development I had a lot of fun experimenting and playing with mechanics. I spend a lot of time just setting situations in the editor, and then watching the simulation unfold.</p>
+<p>In some aspects, I think Dust is quite different from what is out there. One of its shinny and unique feature is the behavior/artificial intelligence of the creatures (including the other (NPC) survivors): I wanted to create a rich world with rich interactions with both friendly and hostile creatures. I am not talking about high amount of pre-coded dialogs. Instead I am referring to the richness that come when each creature has its own individual internal representations of the world: A creature is only aware of what he/she/it can see, have seen before, can hear/feel, have been told about or read about. Clever creatures can retain more information, for longer time, make more complex plans, and better communicate with their pairs. While simpler creatures are much closer to a simple reactive system.</p>
+<p>This vision/goal is at the exact opposite of the “Less is more” talk from Kimberly Voll in GDC15 (https://www.youtube.com/watch?v=1xWg54mdQos).</p>
+<p>In other words, I want to be as far as possible from the GTA Logic:</p>
+<p><img src="6_dust_ai/gta-300x165.jpg"></p>
+<p>For those who are not familiar, one star in GTA means that the coops are now coming after you.</p>
+<p>So instead of the GTA Logic, each creature in Dust has his/her/its internal representation of the world. The two following examples are two scenarios that illustrates what creatures in Dust behave:</p>
+<p>An enemy (e.g. an aggressive survivor) wont see you through a wall (unless specific ability or equipment). He wont even know you are here. However, if you make a noise (the kind of noise that cannot identify who you are like breaking a glass), he might be interested in checking the source of the noise (if there is nothing more important to do). If he sees you, he might choose to attack you, or to run alert some of its friends (if it is clever enough). Friends to which he will communicate what he knows (that he saw you, what/who you are, what you are carrying, where you were seen the last time, etc.). Soon, they will all come back after you (or the place they last saw you).</p>
+<p>This is a simple example what show that all the enemies do not share the same knowledge of the world. Now, here is a question you might ask yourself: What if you kill the a monster before it can alert anyone? The next example covers that, and a bit more.</p>
+<p><img src="6_dust_ai/night.png"></p>
+<p>Imagine the following situation: You have been accepted by a group of ten npc-survivors inside of an shelter house. All survivors are now friendly toward you. However, you decide that the equipment of one of the survivor is quite nice, and you decide to wait for the night and kill him in his sleep to steal his equipment. Luckily for you, he sleeps alone in a bedroom. The night being, you go in his room and you hit him with a piece of wood while he sleeps. However, you do not kill him nor you put him unconscious. So he wakes up, and start to fight you. Or alternatively, he runs away to get some support. Now suppose that he runs into someone elses room. He wakes up another survivor, tell about you, and now, they both come back to kill. Now suppose that you them both of them before they can alert anyone else. Immediately after that, you run away from the crime scene. The noise of the fight has woke up the other survivors, and they are now coming to check for the noise. However, they did not see you killing them nor they have been told about your actions. So they wont know you are the culprit, and therefore, you wont be accused more than any of the other survivors (unless your cloths are still full of blood or some other clues).</p>
+<p>This second example illustrates that the internal representation of an agent contains, among other things, relational information that can be transmitted or change individually over time. This illustrates what Dust AI can do, and I am certain that you have not played much games like that :).</p>
+<p>The following part of this post is a bit more technical than the previous. You have been warned 🙂</p>
+<p>The world of Dust is very large, and only a tiny fraction of the world is loaded in memory at any time. Nevertheless, there might be thousands of intelligent agents in this tiny chunk of world, and having an efficient, salable, real time, reactive and modular AI system was (and is still) quite complex. In the remaining of the post, I will talk about the overall architecture of the of the AI in Dust. Since the AI in Dust has evolved from the AI in B&amp;D, I will first start by presenting the AI in Build &amp; Defend. I will talk about I learned from it, and how it leads to the Dust AI.</p>
+<p>The AI system in Dust has been designed to satisfy the following constraints:</p>
+<p>It should be powerful enough to run the kind of behavior described in the previous examples (and much more).
+It should be efficient enough to run on thousand of creatures at the same time in a real time environment. This mean that complex computation should be either splitted or put on a separate thread.
+Routines should be modulable and composable. We do not want to write 10 times the routines that will look of an object and try to obtain it (by various possible ways).
+It should be easy to use. Writing the AI of a new creature should only be a couple of lines of code from existing blocks.
+It should handle an infinite but only partially loaded in memory world.
+The AI should be able to compose complex plans (e.g. I am hungry -&gt; I need to eat -&gt; let’s find something to eat -&gt; let’s take a piece of meat in the fridge -&gt; let’s cook the meat -&gt; eat the meat).
+The AI should be reactive. If something news append (e.g. a new object appears), the AI should immediately react to it accordingly.
+The AI should be able to resume jobs, or more generally, to start partially started jobs.
+The AI in Dust is very strongly inspired from the AI in B&amp;D. So, let’s talk about it first: In B&amp;D, there are two types of AI: The AI for the “simple” mobs (monsters, rabbits, etc.) and the AI for the advances mobs (workers, elfs and your dog).</p>
+<p>The simple AI is essentially a leaky state machine: A state machine coupled with some continuously running routines that scan the environment. For example, the wood-eater is a small creature that look for wood blocks to eat. However, if a player come too close, it will run away. Wood-eaters are particularly dangerous if your fortress is made of wood. Because they run away and because they are often along aggressive creatures, a simple wood-eater can be quite devastating. The AI of wood-eaters is a state machine with five states (sleeping, standing, running away, going to a piece of wood, eating a piece of wood). In addition, a loop is continuously looking for accessible blocks of wood, and checking that players are far enough (unless it is sleeping)</p>
+<p>The AI of the advances creatures is different: The class that implement each advance creature overrides a function that return a single action object (derived from an abstract action class) and send it to the AI engine. An action is a state machine with the following possible status:</p>
+<ul>
+<li>POSSIBLE_CHECKING : The possibility to actually execute the action is being evaluated (without any action on the world).</li>
+<li>POSSIBLE_FAILED : The checking of the possibility of the action has failed.</li>
+<li>ACTIVE_RUNNING : The possibility of executing the action was positive, and the action is currently being executed by the creature.</li>
+<li>ACTIVE_FAILED : The creature has started to execute the action, but it failed at some point.</li>
+<li>ACTIVE_DONE : The action has been executed entirely and is now over.</li>
+</ul>
+<p>The GoTo action is one of the most basic action. It makes a creature go to a given position defined by its coordinates. Let’s illustrate these status with the GoTo(position) action</p>
+<ul>
+<li>POSSIBLE_CHECKING: The pathfinder runs to check if there is a valid path from the current position of the creature and the target position. The pathfinder runs in a separate thread, and it can take a long time to it to return an answer. During this time, the creature is not moving.</li>
+<li>POSSIBLE_FAILED: There are no valid path for the creature. The action is impossible to execute.</li>
+<li>ACTIVE_RUNNING: The creature has found a valid path, and it is now trying to reach the target position. If the path become invalid, the creature will look for a new valid path.</li>
+<li>ACTIVE_FAILED: The creature initially found a valid path. It started to walk along this path, but the path became invalide (e.g. the world geometry has changed), and the pathfinder could not find a new path to the target position.</li>
+<li>ACTIVE_DONE: The creature has reached the target position.</li>
+</ul>
+<p>B&amp;D has a relatively small library of such “primitive” actions (FindObject(ObjectType), GoTo(position), Follow(Entity), Attack(Entity), Taking(Object), Dropping(Object),etc.). And, all the more complex actions are composed from these simpler actions.</p>
+<p>In order to compose actions, the B&amp;D AI has a library of meta actions. A meta action is an action that compose the execution of various sub-actions. For example, the meta action DoAll is initialized with a list of sub-actions. Then, when executed, and after checking that all of these actions are possible, the DoAll with execute all the sub-actions sequentially one after another. As an example, combining FindReachableItemOnGround(x=Food), Goto(x) and Grab(x) with DoAll makes the creature look for food items, go near it, and grab it. Let’s call this the GetReachableItemFromGround action:</p>
+<p>GetReachableItemFromGround(x=Food) := DoAll([FindReachableItemOnGround(x),Goto(x),Grab(x)])</p>
+<p>Another very useful meta action is the DoAny action. This meta action tries to execute at least one one of its sub-actions (in order). For example, combining FindReachableItemOnGround(x) and GetReachableItemFromContainer(x) with DoAny makes the creature obtains the item x either by finding it on the ground, or by taking it from a container (e.g. a chest).</p>
+<p>Finally, the AI has a large library of actions made from combining raw actions and meta actions. Here are some example of these combined actions in B&amp;D: ApplyPotionOnEntity, AttackMob, BuildOrder, FindEntity, Cook, Craft, CutTree, DigHole, DigWall, Bark, Urinate (for the dog), Eat, Wait, RunAway, FlyAway, Follow, GetCoin, EnsureObjectInInventory, Harvest, RandomWalk, RandomWalkInArea, Sleep, Rescue, etc.</p>
+<p>In B&amp;D, the action returned by the workers is a DoAny action filled with the ordered list of action we want the worker to execute. The last actions in the list will only be executed only if the first actions are no possible. The source code of the AI of a worker looks like that:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">Worker</span> <span class="kd">extends</span> <span class="n">Entity</span>
+    <span class="p">{</span>
+    <span class="n">Action</span> <span class="nf">ai_getAction</span><span class="p">()</span>
+        <span class="p">{</span>
+        <span class="n">DoAny</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DoAny</span><span class="p">();</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">isTired</span><span class="p">())</span>
+            <span class="n">r</span><span class="p">.</span><span class="na">add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Sleep</span><span class="p">());</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">isHungry</span><span class="p">())</span>
+            <span class="n">r</span><span class="p">.</span><span class="na">add</span><span class="p">(</span> <span class="k">new</span> <span class="n">EatSomeFood</span><span class="p">());</span>
+        <span class="p">...</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">isDangerousOutside</span><span class="p">())</span>
+            <span class="n">r</span><span class="p">.</span><span class="na">add</span><span class="p">(</span> <span class="k">new</span> <span class="n">RandomWalkInFortress</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="n">s</span><span class="p">));</span>
+        <span class="k">else</span>
+            <span class="n">r</span><span class="p">.</span><span class="na">add</span><span class="p">(</span> <span class="k">new</span> <span class="n">RandomWalk</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="n">s</span><span class="p">));</span>
+
+        <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p>Let’s suppose the worker is hungry but not tired. This ai_getAction call would return the following action:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">DoAny</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w"></span>
+<span class="w">  </span><span class="o">+--</span><span class="n">EatSomeFood</span><span class="w"> </span><span class="p">[</span><span class="n">extends</span><span class="w"> </span><span class="n">DoAll</span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">+--</span><span class="n">EnsureItemInInventory</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">Food</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">extends</span><span class="w"> </span><span class="n">DoAny</span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">+--</span><span class="n">HasItemInInventory</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">+--</span><span class="n">GetReachableItemFromGround</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">extends</span><span class="w"> </span><span class="n">DoAll</span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">+--</span><span class="n">FindReachableItemOnGround</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">+--</span><span class="n">Goto</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">+--</span><span class="n">Grab</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="o">+--</span><span class="n">GetReachableItemFromContainer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">extends</span><span class="w"> </span><span class="n">DoAll</span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">         </span><span class="o">|</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">         </span><span class="o">+--</span><span class="n">FindReachableItemInContainer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">         </span><span class="o">+--</span><span class="n">Goto</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">|</span><span class="w">         </span><span class="o">+--</span><span class="n">GrabFromContainer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="o">+--</span><span class="n">Eat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">+--</span><span class="n">RandomWalk</span><span class="w"></span>
+</code></pre></div>
+
+<p>Note: The Python script used to make this pretty print of the behavior tree is available at https://github.com/achoum/drawtree.</p>
+<p>Note that the action EatSomeFood is simply a DoAll action pre-filled with some sub-actions. Here is some comment about some of the raw actions:</p>
+<ul>
+<li>HasItemInInventory(x,y): The possibility status of the action succeed if the creature has an object x of type y in the inventory. It fails otherwise. This “action” does not actually do anything.</li>
+<li>FindItemOnGround(x,y): This action scans the world around for an item of a given type. This “action” does make the creature do anything. It simply succeed if it finds a valid item. Because checking the possibility of this action requires to call the pathfinder a large amount of time, it is expensive. But the computation will be distributed along the time i.e. the worker will look like it is thinking.</li>
+<li>Goto: We already saw this action.</li>
+</ul>
+<p>Now let’s suppose we want to design an action that look for an object. And suppose that the test about the validity of the object is very specific (i.e. more complex than just a type test). For example, we are looking for a ranged weapon causing at least 10 points of damages. Instead to re-writing the EnsureItemInInventory action (or any of the sub-actions), we can simply anonymously override its isValidItem(x) function:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">r</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">EnsureItemInInventory</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kt">boolean</span> <span class="nf">isValidItem</span><span class="p">(</span><span class="n">Entity</span> <span class="n">x</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="k">instanceof</span> <span class="n">RangedWeapon</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">((</span><span class="n">RangedWeapon</span><span class="p">)</span><span class="n">x</span><span class="p">).</span><span class="na">damages</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">);</span>
+</code></pre></div>
+
+<p>Generally the action ai_getAction() is called whenever the current action terminate (will success or failure). A nice feature about this AI system is that it is easy to debug (with the right instrumentation). For example, if a worker does not do an action it was expected to do, the developer can look at the logs for the sub-action responsible for the failure. Also, because designing a new action is mainly about assembling existing sub-actions, designing new actions is both fast and less prone to error than if all the sub-actions had to be implemented.</p>
+<p>Additionally, and thanks to the Java online-recompilation (you can change the source code and recompile it without having to restart the game), the development and the tuning of the AI is fast and pleasant.</p>
+<p>This architecture is great, but it does not allow for creatures to be reactive to imminent danger. Therefore, creatures continuously scan the environment for monsters (see following example) and react to external damages.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">Worker</span> <span class="kd">extends</span> <span class="n">Entity</span>
+    <span class="p">{</span>
+    <span class="kt">void</span> <span class="nf">every_1s</span><span class="p">()</span>
+        <span class="p">{</span>
+        <span class="n">Mob</span> <span class="n">monster</span> <span class="o">=</span> <span class="n">scanMonsterAround</span><span class="p">();</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">monster</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span> <span class="n">isSoldier</span><span class="p">()</span> <span class="p">)</span>
+            <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isCurrentActionContains</span><span class="p">(</span><span class="n">AttackingAction</span><span class="p">.</span><span class="na">class</span><span class="p">))</span>
+                <span class="n">setAction</span><span class="p">(</span> <span class="k">new</span> <span class="n">AttackingAction</span><span class="p">(</span><span class="n">monster</span><span class="p">));</span>
+            <span class="p">}</span>
+        <span class="k">else</span>
+            <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isCurrentActionContains</span><span class="p">(</span><span class="n">RunninAwayAction</span><span class="p">.</span><span class="na">class</span><span class="p">))</span>
+                <span class="n">setAction</span><span class="p">(</span> <span class="k">new</span> <span class="n">RunninAwayAction</span><span class="p">(</span><span class="n">monster</span><span class="p">));</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p>Globally, the B&amp;D AI framework is quite powerful and can fulfill most of the requirement for Dust. This architecture has however some big flaws:</p>
+<p>First, it is not reactive. The hack in the every_1s function ensures that a worker don’t completely ignore surrounding monsters until it finishes its current action. However, the worker is not reactive to other internal (e.g. I am tired, I am hungry, I need medical attention) and external (e.g. there is an object of type X on the floor, a friend needs help, etc.) signals.</p>
+<p>Second, a creature needs to stop while evaluating the possibility of its current action. The possibility of some actions require a lot of computation to evaluate. For example, finding accessible wood blocks for wood-eaters might require to call the path finding algorithm on hundreds of locations. Given that the game should be played real time, and given than there are many other creatures using path finding at the same time, you can sometime see wood-eaters being stuck for several seconds without moving. The AI is actually stuck looking for wood.</p>
+<p>Now, let talk about the Dust AI, and how it solves these two issues. The Dust AI differs from the B&amp;D AI on three main points:</p>
+<p>First, instead of returning a single action representing the entire plan of the creature, Dust AI requests and manages an action for each interesting entity in the world, as well as a general action non related to entities. Therefore, when a new entity appears to the creature (because it sees it, or because it has been told about), the AI engine request the action for the entity (and this entity only) instead of requesting all the actions for everything in the world (as it is the case in B&amp;D). Depending of the priority of the action associated with the new entity, the engine will decide or note to evaluate the possibility of this action while the current action of the creature is still being executed. This trick makes both the AI more reactive but also much less expense for the CPU.</p>
+<p>Secondly, Dust AI engine can detect that a newly proposed action (where the possibility has not yet been evaluated) is equivalent to an older action for which the possibility has already been evaluated. In this case, the possibility status of the new action is simply copied from the old one, and possibility does not need to be re-evaluated. There are various extra tricks to make sure that possibility status are still “valid”.</p>
+<p>Finally, Dust AI can evaluates the possibility of an action while another action is still being executed. This ensure that creatures execute actions one after the other without pausing in between.</p>
+<p>So far we talked about the actions. Another important part of Dust AI is the individual world representation of each creature. In the current version, the internal representations only include information about the other entities but not the geometry of the world itself (i.e. If the world change, all the creatures knows it immediately). The architecture of the internal representation system is relatively simple: Each creatures as a structure containing the entities it knows about, with various extra information such as: Can I current see the entity. What is the last known position. Who told be about it, etc.</p>
+<p>The next two pictures shows the internal perception of five survivors talking to each others. The green arrows indicate awareness because of direct visual contact. The blue arrows indicate awareness because of transmitted information. In this example, the survivors can talk if they see each other. Finally, the red arrows indicate the last known position of the target. The second picture was obtained after the right survivor moved north for 5 meters.</p>
+<p><img src="6_dust_ai/around_1.png"></p>
+<p><img src="6_dust_ai/around_2.png"></p>
+<p>This is all for this first post. The AI being an important part in Dust, there will be many other posts about it. However, the next post is already planned and it will be about the world generation :).</p>
+<p><a href="index.html">Back to the blog</a></p>

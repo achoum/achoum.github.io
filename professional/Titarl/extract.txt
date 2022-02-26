@@ -1,0 +1,216 @@
+TITARL Tutorial
+
+By Mathieu GUILLAME-BERT
+Post-doctoral Fellow at Carnegie Mellon University
+The goal of this tutorial is to explain as didactically as possible the TITARL algorithm. For a more formal presentation of this algorithm, I invite you to read the following articles: *Thesis and learning TITARL rules*
+1. Introduction
+
+What is TITARL?
+
+TITARL is a Data Mining algorithm able to extract temporal association rules from Symbolic time sequences and time series.
+
+What is a symbolic time sequences or a scalar time series?
+
+Definition
+A symbolic time sequences is a record (i.e. a set) of symbolic events. An event is a symbol and a timestamp. A scalar time series is a scalar value assigned for each timestamp.
+
+The figure 1 shows an example of symbolic time sequences and scalar time series.
+
+
+Fig.1: Example of symbolic time sequences and scalar time series.
+In this figure, A and B are two symbolic time sequences. You can see four events of symbol A at time 2, 3 and 6. The C is a scalar time series. You can see the value of C to change over time.
+
+Symbolic time sequences and a scalar time series can be used to describe a large range of real systems (called real world systems). For example, Symbolic/scalar time sequences can describe:
+
+The page request made to an internet website.
+A financial market.
+The physiological signs of patients in hospitals.
+The transaction of a client in a shop.
+The incidents and repairs of a ship or a plane.
+What is a temporal association rules?
+
+Definition
+A temporal association rules is type of pattern that describe interesting relations between events in a temporal database. Let's start with an example of (non-temporal) association rule.
+
+A simple example of (popular and inaccurate) association rule is: If a man buys diapers, then he will also buy beers.
+
+This last rule does not have any temporal information. A simple example of temporal association rule is: If a man buys diapers at night, and if he did not buy beers over the last two days, then he will also buy beers with the diapers. This second rule includes a temporal condition. Therefore, this rule will be called a temporal association rule.
+
+The goal of TITARL is to find the most interesting temporal association rules in a symbolic/scalar time sequences. Those rules can be used to understand the system they describe, but also, to forecast what will happens to this system in the future. This tutorial explains didactically how does the TITARL algorithm works.
+
+And, what is the use of a Temporal Data Mining algorithm like TITARL?
+
+Example
+Suppose a patient in an hospital. The patient is equipped with sensors that track his vital signs (e.g. the hearth rate or the respiratory rate). Such sensors are used to alerts medical staffs when patients are becoming unstable(e.g. the patient starts to breath too slowly).
+
+If TITARL if applied a large set of such record of patient, the algorithm will extract temporal rules between those vital signs. Some of those rules will correlate the vital signal of the patients, and the eventual upcoming of instabilities of this patient. Those temporal rules can be analyzes to help the understanding of how the body of a patient works.
+
+We can go further: Those temporal rules can be used to alert medical staffs event BEFORE patients become unstable. In this case, the physicians can act on patients before their lives are threaten, and increase their chance of successful recovery.
+
+The main use of TITARL is to extract rules in order to understand a complex system. Those rules can also be used to forecast/predict the future state of a system. TITARL rules can be used to compare related systems : A system can fit certain rules while another one cannot. Finally, TITARL rules can be used for temporal planning. Example of planning with TITARL rules has been presented in *planning with TITARL rules*. Before explaining TITARL, I will describe what are the temporal association rules that TITARL is able to extract:
+
+2. The TITARL rules (or TITARs)
+
+Like any association rule, a TITARL rules is composed of two parts: The condition (or the body), and the conclusion (or the head). When the condition of the rule becomes true, the rule is activated and it predicts its conclusion.
+
+A very simple example of TITARL rule is:
+
+Rule 1: If there is an event A at time t, then there will be an event of time B a time t+5. This rule is able to forecast events of type B based on events of type A. This rule can be written as : A[t] ? B[t+5]
+Because real world application have a lot of uncertainty, this type of rule usually does not perform very well. To answer this problem, TITARL rules can express uncertainty. More precisely, TITARL consider two types of uncertainty.
+
+The confidence of the rule
+
+The confidence of a rule express the confidence we can have in the predictions of this rule. Titarl expresses confidence with a probability. An example of rule with a confidence is:
+
+Rule 2: If there is an event A at time t, then there is 50% chance to have an event of time B a time t+5. In other words, there is 50% chance to have an event of type B exactly five seconds (if the time is in seconds) after an event of type A. This type of rule is more flexible, and is generally more suited to describe real world systems. This new rule can be written as : A[t] ? B[t+5] 50%
+The temporal accuracy
+
+Because time if generally consider to be continuous (or highly discretized), it is generally impossible to predict exactly when something will happen. To solve this issue, TITARL rules can expresses temporal inaccuracy. An example of rule with temporal inaccuracy is:
+
+Rule 3: If there is an event A at time t, then there will be an event of type B between time t+5 and time t+10. In other words, this rule does not tell exactly when the event of type B will be, but it gives an approximation of its temporal location. This new rule can be written as : A[t] ? [t+5,t+10]
+Those two type of uncertainty can be combined together. An example of rule with temporal inaccuracy AND confidence is:
+
+Rule 4: If there is an event A at time t, then there is 50% chance to have an event of type B between time t+5 and time t+10. This new rule can be written as : A[t] ? B[t+5,t+10] 50%
+The bodies of all those rules are always composed of the same condition: The detection of an event of type A. Rules with this type of condition (only one element) are called "Unit rules".
+
+Such simple rule's bodies are not always powerful enough to describe a system. To solve this problem, TITARL is able to deal with more complex rules. Here are some example of complex rules:
+
+Rule 5: If there is an event A at time t, and if there is an event of type B between [t-5, and t+5], then there is 50% chance to be an event of type C between time t+5 and time t+10.
+or
+Rule 6: If there is an event A at time t, and if there is an event of type B between [t-5, and t+5], and if there is an event of type C from 2 to 3 seconds before B, then there is 70% chance to be an event of type D between time t+1 and time t+3.
+Has you can see, complex rules become hard to explain literally. Therefore, we developed a graphical notation for those rules. The fig. 2 shows the graphical notation for all the example of rules we have presented until now.
+
+
+Fig.2 : Example of TITARL rules.
+The rules can be seen as "trees of temporal conditions". In the previous examples, the conditions are always tests of existence of an event (i.e. testing if there is an event of a given type in a given range of time). TITARL rules can also been condition on value of a time series. For example:
+
+Rule 7: If there is an event A at time t, and if the value of the time series E at time t is lower than 0.5, then there is 50% chance to have an event of time B between t + 5 and t + 6.
+TITARL rules can also express negation. For example:
+
+Rule 8: If there is an event A at time t, and if there is no event of type B between t-2 and t+2, then there is 50% chance to have an event of time B between t + 5 and t + 6.
+Finally, TITARL rules can expresses complex condition over time series:
+
+Rule 9: If there is an event A at time t, and if the value of the time series E at time t is lower than five time the value of the time series F, then there is 50% chance to have an event of time B between t + 5 and t + 6.
+The last important aspect about TITARL rules is the support. The support of a rule A[t] ? B[t+5] 50% is the percentage of event of type B that can be explained by this rule. The support is different from the confidence (actually, the support can be seen as the opposite of the confidence).
+
+Example
+Suppose the rule A[t] ? B[t+5] 50%.
+This rule tells you that when there is an event of type A, there is 50% change to be an event of type B five seconds later. Now, suppose that only 10% of events B are preceded by events of type A. This mean that this rule cannot predict all the events B! Actually, this rule will only predict 10% of the event B. This is what is called the support: The support of this rule is 10%.
+
+A rule is interesting if it has a good confidence, a good support, and a good temporal accuracy. When the TITARL algorithm is applied to a symbolic time sequence, the algorithm is able to extract TITARL rules. The next sections explains how the TITARL algorithm is able to do that.
+
+3. The TITARL algorithm
+
+The TITARL algorithm is divided into four main steps. Each of those steps have a particular roles, and to the algorithm need those four steps to work correctly. Those steps are :
+
+The creation of simple unit rules (A unit rule is a rule with only one condition such as A[t] ? B[t+5] 50%).
+The division of a rule (i.e. splitting a rule into several "smaller" rules)
+The addition of a condition to an already existing rule. (i.e. making the rules more complex but more confident)
+And finally, the refinement of a rule (i.e. polishing the rule to make it slightly better)
+In the TITARL algorithm, the first step (creation of simple unit rules) is applied once at the beginning. When, The three other steps are applied sequentially until the algorithm judges it can stop. The next sections will explain each of those steps as well as why they are necessary. So explanation includes some interactive figures to let you "play" with the data, and understand the steps.
+
+3.1 The creation of simple unit rules
+
+To create all the initial units rules, the TITARL algorithm start to list all the possible type of events. Those events depend on the system on which the TITARL algorithm is applied. But for the simplicity of the writing, we will call those type of events E1, E2, E3, ..., En (there are n types of events). Once those type of events are listed, the algorithm will create a rule for pair (Ei,Ej) of them such as: Ei[t] ? Ej[t-8,t+8]. This rule means that if there is an event of type Ei at time t, then there will be an event of type Ej from t-8 until t+8.
+
+Quiz
+Question
+What is the confidence and the support of the rule Ei[t] ? Ej[t-8,t+8]?
+Answer
+The confidence and the support of this rule are both of 100%.
+Since there are n types of events, there is only n*n = n� rules to create. This type of rule is able to correlate any event that ever existed with any other events that ever existed. If you want to use the TITARL rules to make forecasting prediction, you probably only want to correlate events from the pat to the future. Therefore, instead of creating rules like Ei[t] ? Ej[t-8,t+8], you will the algorithm to only create rules like Ei[t] ? Ej[t+0,t+8] (notice the t+0 instread of the t+8) Also, since events are generally temporally close, you might want to telle the algorithm not to look for events which are too far appart! Therefore, instread of creating rules like Ei[t] ? Ej[t-0,t+8], you will the algorithm to only create rules like Ei[t] ? Ej[t+0,t+h]. In this case, it is up to you to select h. If you dont know what to take for h, simply start by giving it a very good value.
+
+Quiz
+Question
+What is the confidence and the support of the rule Ei[t] ? Ej[t+0,t+h]?
+Answer
+It depends! Both the confidence and the support can be between 0% and 100%.
+At this point, you will get different rules with different support and confidence. Those rulesa are simple, and because there are simple, they might not be very good. Therefore, the other steps will improve them.
+
+Before preseting the other steps, you can notice that some of the rules have confidence or a support so low that they are useless. The next steps will improve their confidence, but they will not be able to improve they support. Therefore, at this point, the algorithm will remove all the rules with a low support. It is up to you to chose the minimum support. Generaly, I set the minimum support to 5%.
+
+3.2 The division of a rule
+
+Example
+Suppose you are living in a county when it is raining from time to time. And suppose that you apply the TITARL algorithm to predict the next time it will rain. If the algorithm tells you that it will rain in the next five years, you might not find this information very useful: To be useful, rules needs to be temporally accurate! Therefore we need a way to increase the temporally accuraty of the rules.
+
+At this point, there are up to n� units rules, and the temporal accuracy of those rules are very bad. This is true because h (that you defined in the previous step) is very large. This step (the division of a rule) will improve the temporal accuracy of the rules.
+
+The temporal accuracy of a rule is a problem that all temporal datamining techniques are facing. Some techniques do not have solution for this problem: In those techniques just ask the user to select a small value for h. Fortuanlty, some other techniques are more clever. When facing a rule like Ei[t] ? Ej[t-0,t+8], most of those techniques are relying of the dencity distribution between the times of Ei and the time of Ej. More exactly, those techniques are analysing P( t - t' | Ei[t] and Ej[t']). Unfortunablt, those solutions only works in sparse datasets (by opposition to dense datasets). To illustrate this problem, consider the following example:
+
+Example
+Suppose that the algorithm has the rule Ei[t] ? Ej[t-0,t+h] (with h very large), and suppose that there is an event Ei at time 1 and two events Ej at time 3 and 4. Should the algorithm should explain those two event Ej with a same rule, or should the algorithm try to generate two separated rules like Ei[t] ? Ej[t,t+3.5] and Ei[t] ? Ej[t+3.5,t+6]?
+
+Let's consider another situation: Suppose the algorithm has the rule Ei[t] ? Ej[t-0,t+h] (with h very large), and suppose that there are two events Ei at time 1 and 2, and one event Ej at time 5 (This is the opposite of the previous example). Here again, should create two rules or a single one?
+
+Those situations happens when the dataset is dence i.e. when a single rule or when several rules are entrelaced. Unfortunatly, the dencity distribution we were talking about before cannot be use to solve those problem. The figure 3 is an interactive example that illustrates this example. In this figure, you can define one or two hidden rules (that the algorithm does not know about), and see the dencity distribution of the rule that is beeing analysed by the learning algorithm (in this case, h=20 is selected to be small enough to make the example easy to inderstand).
+
+Instructions for use
+In this plugin, you can define two unit rules. Those rules are hidden from the TITARL algorithm. If you only want to set one rule, simply define the confidence of the other rule to 0%. The "Snap-shop of events" shows a sample of the dataset. You can use your mouse to navigate and see the hole dataset. "Rule to divide" is the rule that the TITARL algorithm knows. The "Density distribution of the rule to divide" shows the density of this rule.
+
+With the default parameters, you can see that the "Density distribution of the rule to divide" hardly help to detect the two rules. If you increase the total duration of the dataset, the rules will be less interlaced and you will detect more easily the two rules. This plugin illustate that separating interlaced rules is not possible with only the use of the "Density distribution of the rule to divide".
+
+On the plugin, you can see several cloapsed graph below the "Density distribution of the rule to divide". Those graph will be used in the following parts of the tutorial. I recommand you to open a new page with this tutorial so you can continue to read it, while having the plugin accecible.
+
+Hidden rules
+Rule 1 : A[t] ? B[ t + , t +  ]	confidence: %
+Use normal distribution instead of uniform distribution
+Rule 2 : A[t] ? B[ t + , t +  ]	confidence: %
+Use normal distribution instead of uniform distribution
+Dataset
+Duration of the dataset : 
+Number of As : 
+Number of extra Bs (in addition to the hidden rules) : 
+
+Snap-shop of events
+410100410125410150410175410200410225410250410275
+a
+b
+(You can use the mouse to navigate)
+Rule to divide
+Rule 3 : A[t] ? B[ t + 0, t + 20 ] 98%
+Density distribution of the rule to divide
+051015200500100015002000
+Co-occurence matrix (Show)
+*Press show to display*
+Co-probability matrix (Show)
+*Press show to display*
+Smoothed co-probability matrix (Show)
+*Press show to display*
+Distance matrix (Show)
+*Press show to display*
+Graph (Show)
+*Press show to display*
+Coloration clustering (Show)
+*Press show to display*
+Matrix clustering (Show)
+*Press show to display*
+
+
+Fig 3: Interactive illustration showing that is the density distribution of rules when the dataset is dence and entrelaced.
+In order to deinterlace rules (and make them more temporally accurate), the TITARL algorithm uses the co-occurence matrix of the predictions of the rules (instead of the density function). The co-occurence matrix can be seen as a two dimention historam, where the diadonal is the density function, and where the non-diadonal cells shows the relation between events that are predicted together (i.e. by the same prediction) by the rule. The equation of the co-occurence matrix is:
+
+M_{y,x} = ? { 1 | ? Ei[t], Ej[t'] , Ej[t''] with t' - t ? s_x and t'' - t ? s_y } 
+With s_x = [ x . h / n , ( x + 1 ) . h / n ]
+You can see the co-occurence matrix in the plugin. In the co-occurence matrix, you can see two "blocs". Those two "blocs" are due to the two rules. If there is only one rule (you can try it by assigned a confidence of 0% to one of the rules, and 100% to the other), there will be only one bloc in the co-occurence matrix. While it is hard to distinguish the two rules on the density distribution, you can see those two clear "blocs" on the co-occurence matrix. The TITARL algorithm relies on the co-occurence matrix to divide rules (i.e. to find they best temporal accuracy). More precilty, TITARL has two ways of doing it. Both ways have adventages and inconveniants. The first ways of doing it is based on graph coloration technique. The second way is based on matrix clustering. Before applying any of those two techniques, TITARL applies two filters on the co-occurence matrix.
+
+The first filter is to compute the co-probability matrix M' out of the co-occurence matrix M. The equation of this matrix is:
+
+M'_{y,x} = M_{y,x} / M_{y,y}
+The second filter is a cyclique gaussian filter. TITARL computes the smoothed co-probability matrix M'' by applying a Gaussian filter on the co-probability matrix M'. You can see the results of those two filter on the plugin.
+
+3.2.1 Splitting rules with graph coloring
+
+The first method of TITARL to split rule is to suppose the Co-probability matrix and the Smoothed co-probability matrix to be Adjacency matrix. In other words, TITARL create a graph, where the weigth bewteen the node n_i and n_j is equal to M'_{i,j}. You can see this graph in the "Graph" plot of the plugin. The colors are explained in the next paragraph.
+
+Next TITARL apply a threshold t on the weights of the edges: All the edges with a weigth smaller than t are removed. Next, TITARL apply a graph coloration algorithm: A Color (i.e. an index) is assigned to every node. Two connected nodes cannot share the same index. The algorithm tries to assign a color to every node while minimizing the total number of color. You can see this graph and the coloration in the "Graph" plot of the plugin.
+
+Finally, TITARL is creating a new rule for each color. All the nodes with the same color will define the temporal constraint in the head of the rule. You can see different splittings of the rule with different value of t in the "Coloration clustering" plot of the plugin.
+
+3.2.1 Splitting rules with matrix clustering
+
+The second method of TITARL to split rule is to compute a distance between the collums of the co-occurence matrix, and then to apply a herarchical clustering to generate groups of collumns. The TITARL algorithm creates a new rule for each groups of collumns. You can see the distance matrix (euclidiant distance) and the matrix clusters in the "Distance matrix" plot and the "Matrix clustering" plot of the plugin.
+
+3.3 The addition of a condition to a rule
+
+3.4 The refinement of a rule
