@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Car v2</title>
+    <script type="module" src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+
+    <div style="display:flex; justify-content: space-around; padding-top:5px;">
+        <input type="button" value="Connect" id="button_test" class="button">
+        <input type="button" value="XBox controller" id="button_xbox_controller" class="button">
+        <input type="button" value="Full screen" id="button_fullscreen" class="button">
+    </div>
+
+    <div style="display:flex; justify-content: space-around; margin-top:20px;">
+        <!-- <div id="joy_test_2d_1" class="joystick_2d">
+            <div class="nub"></div>
+        </div> -->
+
+        <!-- <div id="joy_test_2d_2" class="joystick_2d">
+            <div class="nub"></div>
+        </div> -->
+
+        <div id="joy_1d_direction" class="joystick_1d_horizontal">
+            <div class="nub"></div>
+        </div>
+        <div id="joy_1d_speed" class="joystick_1d">
+            <div class="nub"></div>
+        </div>
+    </div>
+
+    <div style="display:flex; justify-content: space-around; margin-top:20px;">
+        <div class="temperature">
+            <div class="label">Chip:</div>
+            <div class="value" id="temperature">30°C</div>
+        </div>
+    </div>
+
+    <div id="terminal" class="terminal" style="position: absolute; bottom: 0;"></div>
+
+    <div class="about">Remote Car v2 by Achoum</div>
+</body>
+
+</html>
